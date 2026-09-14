@@ -1,432 +1,1140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>UNO Car | One Way & Intercity Cab Booking in Rajasthan</title>
-  <meta name="description" content="Book reliable one way, round trip and airport cabs across Rajasthan with UNO Car. Transparent fares, professional drivers and 24x7 support." />
-  <meta name="robots" content="index,follow" />
-  <meta property="og:title" content="UNO Car - Rajasthan Cab Booking" />
-  <meta property="og:description" content="One Way, Round Trip, Airport Taxi & Rajasthan Tour Cabs." />
-  <meta property="og:type" content="website" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>UNO Car | One Way Cab & Taxi Service in Rajasthan</title>
+  <meta name="description" content="Book one way and outstation cabs from Jodhpur, Jaipur, Jaisalmer, Udaipur and other Rajasthan cities. Contact UNO Car on WhatsApp for availability and fare.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#f5b400">
+
+  <meta property="og:title" content="UNO Car | Rajasthan Cab Service">
+  <meta property="og:description" content="One way, airport and outstation cab bookings across Rajasthan.">
+  <meta property="og:type" content="website">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --primary:#f6b800;
-      --primary-dark:#d89d00;
-      --ink:#16202a;
-      --muted:#6c7783;
-      --paper:#ffffff;
-      --soft:#f6f8fa;
-      --line:#e5e9ed;
-      --success:#168b47;
-      --shadow:0 20px 50px rgba(22,32,42,.12);
-      --radius:20px;
+      --yellow:#f5b400;
+      --yellow-dark:#d99d00;
+      --dark:#17212b;
+      --text:#26313a;
+      --muted:#69747e;
+      --light:#f6f7f8;
+      --border:#e2e6e9;
+      --white:#fff;
+      --green:#168544;
+      --radius:16px;
+      --shadow:0 10px 30px rgba(23,33,43,.08);
     }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);background:#fff}
+    body{
+      margin:0;
+      font-family:Inter,Arial,sans-serif;
+      color:var(--text);
+      background:#fff;
+      line-height:1.5;
+    }
     a{text-decoration:none;color:inherit}
     img{display:block;width:100%;object-fit:cover}
-    .container{width:min(1180px,calc(100% - 32px));margin:auto}
-    .topbar{background:#111b24;color:#fff;font-size:13px}
-    .topbar .container{display:flex;justify-content:space-between;gap:20px;padding:9px 0}
-    .nav{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.05)}
-    .nav-inner{height:74px;display:flex;align-items:center;justify-content:space-between;gap:28px}
-    .brand{display:flex;align-items:center;gap:10px;font-family:Manrope,sans-serif;font-size:24px;font-weight:800}
-    .brand-badge{height:42px;width:42px;border-radius:12px;background:var(--primary);display:grid;place-items:center;font-size:22px;box-shadow:inset 0 -5px 0 rgba(0,0,0,.08)}
-    .menu{display:flex;gap:28px;align-items:center;font-size:14px;font-weight:600}
-    .nav-actions{display:flex;gap:10px}
-    .btn{border:0;border-radius:12px;padding:13px 18px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:.2s}
+    button,input{font:inherit}
+    .container{width:min(1160px,calc(100% - 32px));margin:0 auto}
+
+    /* Header */
+    .top-strip{
+      background:var(--dark);
+      color:#dce2e6;
+      font-size:12px;
+      padding:8px 0;
+    }
+    .top-strip .container{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,.97);
+      border-bottom:1px solid var(--border);
+    }
+    .header-inner{
+      min-height:70px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:25px;
+    }
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:9px;
+      font-family:Manrope,sans-serif;
+      font-size:22px;
+      font-weight:800;
+      white-space:nowrap;
+    }
+    .logo-mark{
+      width:38px;
+      height:38px;
+      display:grid;
+      place-items:center;
+      border-radius:10px;
+      background:var(--yellow);
+      font-size:20px;
+    }
+    .logo span:last-child{color:#a77400}
+
+    .main-nav{
+      display:flex;
+      align-items:center;
+      gap:24px;
+      font-size:13px;
+      font-weight:600;
+    }
+    .main-nav a:hover{color:#a77400}
+
+    .header-actions{
+      display:flex;
+      gap:8px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:7px;
+      border:0;
+      border-radius:10px;
+      padding:11px 16px;
+      font-weight:700;
+      font-size:13px;
+      cursor:pointer;
+      transition:transform .2s ease,background .2s ease;
+    }
     .btn:hover{transform:translateY(-1px)}
-    .btn-primary{background:var(--primary);color:#151515;box-shadow:0 8px 20px rgba(246,184,0,.25)}
-    .btn-dark{background:#17212b;color:white}
-    .hero{min-height:650px;position:relative;background:
-      linear-gradient(90deg,rgba(12,18,24,.86) 0%,rgba(12,18,24,.52) 45%,rgba(12,18,24,.2) 100%),
-      url('https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=1800&q=82') center/cover no-repeat;color:white;display:flex;align-items:center}
-    .hero::after{content:"";position:absolute;inset:auto 0 0;height:110px;background:linear-gradient(transparent,#fff)}
-    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 500px;gap:46px;align-items:center;padding:70px 0 110px}
-    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 11px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.10);font-size:13px;font-weight:700}
-    h1{font-family:Manrope,sans-serif;font-size:54px;line-height:1.05;margin:18px 0 16px;letter-spacing:-1.8px}
-    .hero-copy p{font-size:18px;line-height:1.7;color:#e5ebef;max-width:620px}
-    .hero-points{display:flex;flex-wrap:wrap;gap:18px;margin-top:24px;font-size:14px;font-weight:700}
-    .booking-card{background:#fff;color:var(--ink);border-radius:24px;padding:22px;box-shadow:var(--shadow)}
-    .tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;background:var(--soft);padding:6px;border-radius:14px;margin-bottom:18px}
-    .tab{padding:10px;border-radius:10px;text-align:center;font-size:13px;font-weight:800;cursor:pointer}
-    .tab.active{background:var(--primary);color:#111}
-    .booking-card h2{font-family:Manrope,sans-serif;font-size:23px;margin:4px 0 4px}
-    .booking-card .sub{color:var(--muted);font-size:13px;margin-bottom:15px}
-    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .field{display:flex;flex-direction:column;gap:7px}
-    .field.full{grid-column:1/-1}
-    label{font-size:12px;font-weight:800;color:#3c4752}
-    input,select{width:100%;height:46px;border:1px solid var(--line);border-radius:11px;padding:0 12px;font:inherit;background:#fff;color:#1b2732;outline:none}
-    input:focus,select:focus{border-color:#dca400;box-shadow:0 0 0 3px rgba(246,184,0,.15)}
-    .form-submit{width:100%;margin-top:14px;height:50px;font-size:15px}
-    .form-note{font-size:11px;color:#7d8791;text-align:center;margin:9px 0 0}
-    .section{padding:84px 0}
-    .section.soft{background:var(--soft)}
-    .section-head{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:30px}
-    .section-head h2{font-family:Manrope,sans-serif;font-size:36px;letter-spacing:-1px;margin:0 0 8px}
-    .section-head p{color:var(--muted);margin:0;max-width:650px;line-height:1.6}
-    .route-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-    .route-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;transition:.25s;box-shadow:0 8px 25px rgba(20,30,40,.04)}
-    .route-card:hover{transform:translateY(-4px);box-shadow:0 16px 35px rgba(20,30,40,.1)}
-    .route-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
-    .route-name{font-weight:800;line-height:1.45}
-    .price{font-weight:800;color:#9a6d00;margin-top:12px}
-    .route-meta{font-size:12px;color:var(--muted);margin-top:6px}
-    .why-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:stretch}
-    .why-image{min-height:460px;border-radius:24px;overflow:hidden;position:relative}
-    .why-image img{height:100%}
-    .floating-stat{position:absolute;right:22px;bottom:22px;background:#fff;border-radius:18px;padding:18px 20px;box-shadow:var(--shadow);color:var(--ink)}
-    .floating-stat strong{font:800 30px Manrope,sans-serif}
-    .features{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    .feature{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}
-    .ico{height:42px;width:42px;background:#fff3c5;border-radius:12px;display:grid;place-items:center;font-size:20px;margin-bottom:10px}
-    .feature h3{font-size:15px;margin:0 0 6px}
-    .feature p{font-size:13px;color:var(--muted);margin:0;line-height:1.55}
-    .fleet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .fleet-card{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#fff}
-    .fleet-card img{height:210px;background:#f0f2f4}
-    .fleet-body{padding:20px}
-    .fleet-top{display:flex;justify-content:space-between;gap:12px}
-    .fleet-body h3{margin:0;font-size:20px}
-    .badge{background:#eaf7ef;color:var(--success);padding:6px 9px;border-radius:999px;font-size:11px;font-weight:800;height:max-content}
-    .fleet-meta{display:flex;gap:14px;color:var(--muted);font-size:13px;margin:14px 0}
-    .destination-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    .destination{height:260px;border-radius:18px;overflow:hidden;position:relative;color:white}
-    .destination img{height:100%;transition:.4s}
-    .destination:hover img{transform:scale(1.05)}
-    .destination::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(0,0,0,.78))}
-    .destination span{position:absolute;left:18px;bottom:17px;z-index:2;font-weight:800;font-size:18px}
-    .cta{background:#121d27;color:white;border-radius:28px;padding:46px;display:flex;align-items:center;justify-content:space-between;gap:30px;overflow:hidden;position:relative}
-    .cta::before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:var(--primary);opacity:.14;right:-60px;top:-90px}
-    .cta h2{font-family:Manrope,sans-serif;font-size:34px;margin:0 0 9px}
-    .cta p{color:#c6d0d8;margin:0;line-height:1.6}
-    .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .review{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}
-    .stars{color:#d69e00;letter-spacing:2px}
-    .review p{color:#53606b;line-height:1.65;font-size:14px}
-    .faq{display:grid;grid-template-columns:1fr 1fr;gap:12px 20px}
-    details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px}
-    summary{font-weight:800;cursor:pointer}
-    details p{color:var(--muted);font-size:14px;line-height:1.6}
-    footer{background:#0e171f;color:#c3ccd3;padding:56px 0 95px}
-    .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:35px}
-    footer h4{color:white;margin:0 0 16px}
-    footer a{display:block;margin:9px 0;font-size:13px}
-    .copyright{border-top:1px solid rgba(255,255,255,.08);margin-top:35px;padding-top:20px;font-size:12px}
+    .btn-yellow{background:var(--yellow);color:#161616}
+    .btn-dark{background:var(--dark);color:#fff}
+    .btn-outline{border:1px solid var(--border);background:#fff}
+
+    /* Hero */
+    .hero{
+      min-height:620px;
+      display:flex;
+      align-items:center;
+      color:#fff;
+      background:
+        linear-gradient(90deg,rgba(15,22,29,.88),rgba(15,22,29,.58) 50%,rgba(15,22,29,.18)),
+        url("https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=1800&q=82") center/cover no-repeat;
+    }
+    .hero-inner{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) 430px;
+      gap:55px;
+      align-items:center;
+      padding:70px 0;
+    }
+    .hero-label{
+      display:inline-block;
+      padding:7px 11px;
+      border:1px solid rgba(255,255,255,.25);
+      background:rgba(255,255,255,.09);
+      border-radius:30px;
+      font-size:12px;
+      font-weight:600;
+    }
+    .hero h1{
+      max-width:700px;
+      margin:17px 0 15px;
+      font-family:Manrope,sans-serif;
+      font-size:52px;
+      line-height:1.06;
+      letter-spacing:-1.5px;
+    }
+    .hero-text{
+      max-width:620px;
+      color:#e6ebee;
+      font-size:16px;
+    }
+    .hero-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 20px;
+      margin-top:22px;
+      font-size:13px;
+      font-weight:600;
+    }
+
+    /* Booking */
+    .booking-box{
+      color:var(--text);
+      background:#fff;
+      border-radius:18px;
+      padding:22px;
+      box-shadow:0 18px 50px rgba(0,0,0,.2);
+    }
+    .booking-box h2{
+      margin:0 0 4px;
+      font-family:Manrope,sans-serif;
+      font-size:22px;
+    }
+    .booking-box .small{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:12px;
+    }
+    .trip-tabs{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:5px;
+      padding:5px;
+      margin-bottom:18px;
+      background:var(--light);
+      border-radius:10px;
+    }
+    .trip-tab{
+      padding:9px 5px;
+      border:0;
+      border-radius:8px;
+      background:transparent;
+      font-size:12px;
+      font-weight:700;
+      cursor:pointer;
+    }
+    .trip-tab.active{background:var(--yellow)}
+
+    .form-field{margin-bottom:12px}
+    .form-field label{
+      display:block;
+      margin-bottom:6px;
+      color:#3e4952;
+      font-size:11px;
+      font-weight:700;
+    }
+    .form-field input{
+      width:100%;
+      height:46px;
+      padding:0 12px;
+      border:1px solid var(--border);
+      border-radius:9px;
+      outline:none;
+    }
+    .form-field input:focus{
+      border-color:var(--yellow-dark);
+      box-shadow:0 0 0 3px rgba(245,180,0,.14);
+    }
+    .booking-submit{width:100%;height:48px;margin-top:3px}
+    .booking-note{
+      margin:9px 0 0;
+      text-align:center;
+      color:#89929a;
+      font-size:10px;
+    }
+
+    /* General sections */
+    .section{padding:76px 0}
+    .section.grey{background:var(--light)}
+    .section-heading{
+      max-width:680px;
+      margin-bottom:28px;
+    }
+    .section-heading h2{
+      margin:0 0 7px;
+      font-family:Manrope,sans-serif;
+      font-size:34px;
+      line-height:1.15;
+      letter-spacing:-.7px;
+    }
+    .section-heading p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    /* Routes */
+    .routes{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+    }
+    .route{
+      padding:20px;
+      border:1px solid var(--border);
+      border-radius:14px;
+      background:#fff;
+    }
+    .route-name{font-weight:700;font-size:15px}
+    .route-price{
+      margin-top:13px;
+      color:#9a6d00;
+      font-size:13px;
+      font-weight:700;
+    }
+    .route-info{
+      margin-top:5px;
+      color:var(--muted);
+      font-size:11px;
+    }
+
+    /* Why */
+    .why{
+      display:grid;
+      grid-template-columns:1.05fr 1fr;
+      gap:35px;
+      align-items:stretch;
+    }
+    .why-photo{
+      min-height:430px;
+      overflow:hidden;
+      position:relative;
+      border-radius:18px;
+    }
+    .why-photo img{height:100%}
+    .support-badge{
+      position:absolute;
+      right:18px;
+      bottom:18px;
+      padding:15px 18px;
+      border-radius:13px;
+      background:#fff;
+      box-shadow:var(--shadow);
+    }
+    .support-badge strong{
+      font-family:Manrope,sans-serif;
+      font-size:26px;
+    }
+    .support-badge span{
+      display:block;
+      color:var(--muted);
+      font-size:11px;
+    }
+    .benefits{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    .benefit{
+      padding:17px;
+      border:1px solid var(--border);
+      border-radius:13px;
+      background:#fff;
+    }
+    .benefit-icon{
+      width:38px;
+      height:38px;
+      display:grid;
+      place-items:center;
+      margin-bottom:9px;
+      border-radius:9px;
+      background:#fff3c4;
+      font-size:18px;
+    }
+    .benefit h3{margin:0 0 5px;font-size:14px}
+    .benefit p{margin:0;color:var(--muted);font-size:12px;line-height:1.55}
+
+    /* Fleet */
+    .fleet{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .car-card{
+      overflow:hidden;
+      border:1px solid var(--border);
+      border-radius:16px;
+      background:#fff;
+    }
+    .car-card img{height:205px}
+    .car-content{padding:18px}
+    .car-top{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .car-top h3{margin:0;font-size:18px}
+    .car-tag{
+      height:max-content;
+      padding:5px 8px;
+      border-radius:20px;
+      background:#eaf7ef;
+      color:var(--green);
+      font-size:10px;
+      font-weight:700;
+    }
+    .car-meta{
+      display:flex;
+      gap:15px;
+      margin:11px 0 15px;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    /* Destinations */
+    .places{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:13px;
+    }
+    .place{
+      height:240px;
+      overflow:hidden;
+      position:relative;
+      border-radius:15px;
+      color:#fff;
+    }
+    .place img{height:100%;transition:transform .3s}
+    .place:hover img{transform:scale(1.04)}
+    .place:after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(transparent 40%,rgba(0,0,0,.78));
+    }
+    .place strong{
+      position:absolute;
+      left:16px;
+      bottom:15px;
+      z-index:1;
+      font-size:17px;
+    }
+
+    /* B2B */
+    .partner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:25px;
+      padding:42px;
+      border-radius:20px;
+      background:var(--dark);
+      color:#fff;
+    }
+    .partner h2{
+      margin:0 0 6px;
+      font-family:Manrope,sans-serif;
+      font-size:30px;
+    }
+    .partner p{margin:0;color:#cbd3d8;font-size:13px}
+
+    /* Branches */
+    .branches{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .branch{
+      padding:23px;
+      border:1px solid var(--border);
+      border-radius:15px;
+      background:#fff;
+    }
+    .branch-icon{
+      width:40px;
+      height:40px;
+      display:grid;
+      place-items:center;
+      margin-bottom:13px;
+      border-radius:50%;
+      background:#fff3c4;
+    }
+    .branch h3{margin:0 0 9px;font-size:18px}
+    .branch-address{
+      min-height:70px;
+      margin:0 0 12px;
+      color:var(--muted);
+      font-size:12px;
+    }
+    .branch-phone{
+      display:block;
+      margin-bottom:12px;
+      font-size:13px;
+      font-weight:700;
+    }
+    .branch-services{
+      margin:0;
+      color:#777;
+      font-size:11px;
+      line-height:1.6;
+    }
+    .branch .whatsapp{
+      margin-top:15px;
+      padding:9px 14px;
+      border-radius:8px;
+      background:var(--yellow);
+      display:inline-block;
+      font-size:12px;
+      font-weight:700;
+    }
+
+    /* Reviews */
+    .reviews{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:15px;
+    }
+    .review{
+      padding:20px;
+      border:1px solid var(--border);
+      border-radius:14px;
+      background:#fff;
+    }
+    .stars{letter-spacing:2px;color:#c99100}
+    .review p{margin:10px 0 0;color:#59646d;font-size:13px;line-height:1.6}
+
+    /* FAQ */
+    .faq{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px 15px;
+    }
+    details{
+      padding:15px 17px;
+      border:1px solid var(--border);
+      border-radius:11px;
+      background:#fff;
+    }
+    summary{cursor:pointer;font-size:13px;font-weight:700}
+    details p{margin:10px 0 0;color:var(--muted);font-size:12px}
+
+    /* Footer */
+    footer{
+      padding:50px 0 35px;
+      background:#101920;
+      color:#c6ced4;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.5fr 1fr 1fr 1fr;
+      gap:30px;
+    }
+    footer .logo{color:#fff}
+    footer h4{margin:0 0 13px;color:#fff;font-size:13px}
+    footer a{display:block;margin:8px 0;font-size:12px}
+    footer a:hover{color:var(--yellow)}
+    .footer-about{
+      max-width:360px;
+      font-size:12px;
+      line-height:1.7;
+    }
+    .copyright{
+      margin-top:35px;
+      padding-top:18px;
+      border-top:1px solid rgba(255,255,255,.09);
+      font-size:11px;
+    }
+    .admin-link{
+      margin-top:15px;
+      font-size:11px;
+      color:#89939b;
+    }
+
+    /* Mobile bar */
     .mobile-bar{display:none}
-    .toast{position:fixed;right:18px;bottom:18px;background:#17212b;color:white;border-radius:12px;padding:14px 16px;z-index:2000;box-shadow:var(--shadow);opacity:0;transform:translateY(20px);pointer-events:none;transition:.3s}
-    .toast.show{opacity:1;transform:none}
+
     @media(max-width:980px){
-      .menu{display:none}
-      .hero-grid{grid-template-columns:1fr;gap:28px}
-      .hero{min-height:auto}
-      h1{font-size:44px}
-      .booking-card{max-width:650px}
-      .route-grid,.destination-grid{grid-template-columns:repeat(2,1fr)}
-      .why-grid{grid-template-columns:1fr}
-      .fleet-grid,.reviews{grid-template-columns:1fr 1fr}
+      .main-nav{display:none}
+      .hero-inner{grid-template-columns:1fr;gap:30px}
+      .booking-box{max-width:600px}
+      .routes,.places{grid-template-columns:1fr 1fr}
+      .why{grid-template-columns:1fr}
+      .fleet,.reviews,.branches{grid-template-columns:1fr 1fr}
       .footer-grid{grid-template-columns:1fr 1fr}
     }
+
     @media(max-width:640px){
-      .topbar{display:none}
-      .nav-inner{height:64px}
-      .nav-actions .btn-dark{display:none}
-      .brand{font-size:20px}
-      .brand-badge{height:36px;width:36px}
-      .hero-grid{padding:48px 0 88px}
-      h1{font-size:38px;letter-spacing:-1px}
-      .hero-copy p{font-size:16px}
-      .hero-points{gap:10px;font-size:12px}
-      .booking-card{padding:16px;border-radius:18px}
-      .form-grid{grid-template-columns:1fr}
-      .field.full{grid-column:auto}
-      .section{padding:62px 0}
-      .section-head{display:block}
-      .section-head h2{font-size:29px}
-      .section-head p{font-size:14px}
-      .route-grid,.fleet-grid,.destination-grid,.reviews,.faq,.features{grid-template-columns:1fr}
-      .why-image{min-height:350px}
-      .destination{height:230px}
-      .cta{padding:30px 24px;display:block}
-      .cta h2{font-size:28px}
-      .cta .btn{margin-top:20px}
+      .top-strip{display:none}
+      .container{width:min(100% - 24px,1160px)}
+      .header-inner{min-height:62px}
+      .header-actions .btn-dark{display:none}
+      .logo{font-size:19px}
+      .logo-mark{width:34px;height:34px}
+      .hero{min-height:auto}
+      .hero-inner{padding:48px 0 70px}
+      .hero h1{font-size:38px}
+      .hero-text{font-size:14px}
+      .hero-list{font-size:11px;gap:8px 14px}
+      .booking-box{padding:16px;border-radius:15px}
+      .section{padding:60px 0}
+      .section-heading h2{font-size:28px}
+      .routes,.places,.fleet,.reviews,.branches,.benefits,.faq{grid-template-columns:1fr}
+      .place{height:220px}
+      .why-photo{min-height:330px}
+      .partner{display:block;padding:28px 23px}
+      .partner h2{font-size:25px}
+      .partner .btn{margin-top:18px}
       .footer-grid{grid-template-columns:1fr 1fr}
-      footer{padding-bottom:115px}
-      .mobile-bar{position:fixed;display:grid;grid-template-columns:1fr 1fr 1.2fr;left:10px;right:10px;bottom:10px;z-index:1500;background:#fff;border-radius:16px;padding:8px;box-shadow:0 12px 40px rgba(0,0,0,.22);gap:7px}
-      .mobile-bar a{padding:11px 8px;border-radius:10px;text-align:center;font-size:12px;font-weight:800;background:#f3f5f6}
-      .mobile-bar .book{background:var(--primary);color:#111}
+      footer{padding-bottom:100px}
+      .mobile-bar{
+        position:fixed;
+        left:9px;
+        right:9px;
+        bottom:9px;
+        z-index:1500;
+        display:grid;
+        grid-template-columns:1fr 1fr 1.15fr;
+        gap:6px;
+        padding:7px;
+        border-radius:14px;
+        background:#fff;
+        box-shadow:0 8px 30px rgba(0,0,0,.2);
+      }
+      .mobile-bar a{
+        padding:10px 5px;
+        text-align:center;
+        border-radius:8px;
+        background:#f1f3f4;
+        font-size:11px;
+        font-weight:700;
+      }
+      .mobile-bar .book{background:var(--yellow)}
     }
   </style>
+
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"TaxiService",
     "name":"UNO Car",
     "areaServed":"Rajasthan, India",
-    "description":"One way, round trip, airport taxi, local sightseeing and Rajasthan tour cab service.",
-    "telephone":"+91XXXXXXXXXX"
+    "description":"One way and outstation cab service across Rajasthan.",
+    "telephone":"+919462661966"
   }
   </script>
 </head>
+
 <body>
-  <div class="topbar">
+
+  <div class="top-strip">
     <div class="container">
-      <span>24×7 Rajasthan Cab Support</span>
-      <span>Professional Drivers · Clean AC Cabs · Transparent Pricing</span>
+      <span>UNO Car · Rajasthan</span>
+      <span>Cab booking support available 24×7</span>
     </div>
   </div>
 
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a class="brand" href="#"><span class="brand-badge">🚕</span> UNO <span style="color:#b07b00">Car</span></a>
-      <div class="menu">
-        <a href="#routes">Popular Routes</a>
-        <a href="#fleet">Fleet</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.php">
+        <span class="logo-mark">🚕</span>
+        UNO <span>Car</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="#routes">Routes</a>
+        <a href="#fleet">Cars</a>
         <a href="#destinations">Destinations</a>
-        <a href="#why">Why UNO</a>
+        <a href="#branches">Branches</a>
+        <a href="blog.php">Blog</a>
         <a href="#faq">FAQ</a>
-      </div>
-      <div class="nav-actions">
-        <a class="btn btn-dark" href="tel:+91XXXXXXXXXX">☎ Call Now</a>
-        <a class="btn btn-primary" href="#booking">Book Cab</a>
-      </div>
-    </div>
-  </nav>
+      </nav>
 
-  <header class="hero">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <span class="eyebrow">✦ Rajasthan's dependable cab booking partner</span>
-        <h1>One Way Cab Booking Made Simple.</h1>
-        <p>Book comfortable one-way, round-trip and airport cabs across Rajasthan with clear pricing, professional drivers and 24×7 support.</p>
-        <div class="hero-points">
-          <span>✓ No hidden charges</span>
-          <span>✓ Doorstep pickup</span>
-          <span>✓ GPS-enabled trips</span>
-          <span>✓ Quick WhatsApp booking</span>
-        </div>
-      </div>
-
-      <div class="booking-card" id="booking">
-        <div class="tabs">
-          <div class="tab active" data-trip="One Way">One Way</div>
-          <div class="tab" data-trip="Round Trip">Round Trip</div>
-          <div class="tab" data-trip="Airport">Airport</div>
-        </div>
-        <h2>Book your cab</h2>
-        <div class="sub">Tell us your trip details. We’ll confirm availability and fare.</div>
-
-        <form id="cabForm">
-          <input type="hidden" id="tripType" value="One Way">
-          <div class="form-grid">
-            <div class="field"><label>Pickup City</label><input id="pickup" placeholder="e.g. Jodhpur" required></div>
-            <div class="field"><label>Drop City</label><input id="drop" placeholder="e.g. Jaisalmer" required></div>
-            <div class="field"><label>Travel Date</label><input id="date" type="date" required></div>
-            <div class="field"><label>Pickup Time</label><input id="time" type="time" required></div>
-            <div class="field"><label>Passengers</label>
-              <select id="passengers"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6+</option></select>
-            </div>
-            <div class="field"><label>Vehicle</label>
-              <select id="vehicle"><option>Sedan</option><option>SUV / Ertiga</option><option>Innova Crysta</option><option>Tempo Traveller</option></select>
-            </div>
-            <div class="field"><label>Your Name</label><input id="name" placeholder="Full name" required></div>
-            <div class="field"><label>Mobile Number</label><input id="mobile" inputmode="numeric" placeholder="10-digit mobile" required></div>
-          </div>
-          <button class="btn btn-primary form-submit" type="submit">Get Fare on WhatsApp →</button>
-          <p class="form-note">By submitting, you agree to be contacted regarding this cab enquiry.</p>
-        </form>
+      <div class="header-actions">
+        <a class="btn btn-dark" href="tel:+919462661966">Call</a>
+        <a class="btn btn-yellow" href="#booking">Book Cab</a>
       </div>
     </div>
   </header>
 
-  <section class="section" id="routes">
-    <div class="container">
-      <div class="section-head">
+  <main>
+
+    <section class="hero">
+      <div class="container hero-inner">
+
         <div>
-          <h2>Popular One Way Routes</h2>
-          <p>High-demand Rajasthan routes with quick booking and doorstep pickup.</p>
+          <span class="hero-label">One Way & Outstation Cab Service</span>
+
+          <h1>Travel across Rajasthan without the booking headache.</h1>
+
+          <p class="hero-text">
+            Book a cab from Jodhpur, Jaipur, Jaisalmer, Udaipur and other Rajasthan cities.
+            Share your pickup and drop details and our team will confirm the available cab and fare.
+          </p>
+
+          <div class="hero-list">
+            <span>✓ Doorstep pickup</span>
+            <span>✓ AC cabs</span>
+            <span>✓ Experienced drivers</span>
+            <span>✓ WhatsApp booking</span>
+          </div>
         </div>
-        <a href="#booking" class="btn btn-dark">View / Book Route</a>
-      </div>
-      <div class="route-grid">
-        <div class="route-card"><div class="route-row"><div class="route-name">Jodhpur → Jaisalmer</div><span>→</span></div><div class="price">Get best fare</div><div class="route-meta">Approx. 4.5–5 hrs · One Way</div></div>
-        <div class="route-card"><div class="route-row"><div class="route-name">Jodhpur → Jaipur</div><span>→</span></div><div class="price">Get best fare</div><div class="route-meta">Approx. 5.5–6 hrs · One Way</div></div>
-        <div class="route-card"><div class="route-row"><div class="route-name">Jodhpur → Udaipur</div><span>→</span></div><div class="price">Get best fare</div><div class="route-meta">Approx. 5 hrs · One Way</div></div>
-        <div class="route-card"><div class="route-row"><div class="route-name">Jaisalmer → Jodhpur</div><span>→</span></div><div class="price">Get best fare</div><div class="route-meta">Approx. 4.5–5 hrs · One Way</div></div>
-      </div>
-    </div>
-  </section>
 
-  <section class="section soft" id="why">
-    <div class="container why-grid">
-      <div class="why-image">
-        <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=1200&q=80" alt="Rajasthan travel destination">
-        <div class="floating-stat"><strong>24×7</strong><br><span style="color:#68737c;font-size:13px">Booking & trip support</span></div>
-      </div>
-      <div>
-        <div class="section-head" style="display:block;margin-bottom:22px">
-          <h2>Why Travellers Choose UNO Car</h2>
-          <p>A premium local cab experience built around reliability, safety and transparent service.</p>
+        <div class="booking-box" id="booking">
+          <div class="trip-tabs">
+            <button type="button" class="trip-tab active" data-trip="One Way">One Way</button>
+            <button type="button" class="trip-tab" data-trip="Round Trip">Round Trip</button>
+            <button type="button" class="trip-tab" data-trip="Airport">Airport</button>
+          </div>
+
+          <h2>Book your cab</h2>
+          <p class="small">Enter your pickup and drop location. We'll continue the booking on WhatsApp.</p>
+
+          <form id="cabForm">
+            <input type="hidden" id="tripType" value="One Way">
+
+            <div class="form-field">
+              <label for="pickup">Pickup</label>
+              <input id="pickup" type="text" placeholder="Enter pickup city or location" autocomplete="off" required>
+		<!-- Pickup City -->
+
+            </div>
+
+            <div class="form-field">
+              <label for="drop">Drop</label>
+              <input id="drop" type="text" placeholder="Enter destination" autocomplete="off" required>
+            </div>
+
+            <button class="btn btn-yellow booking-submit" type="submit">
+              Continue on WhatsApp →
+            </button>
+
+            <p class="booking-note">No payment is taken through this form.</p>
+          </form>
         </div>
-        <div class="features">
-          <div class="feature"><div class="ico">❄️</div><h3>Clean AC Cabs</h3><p>Comfortable, maintained vehicles suited for Rajasthan road travel.</p></div>
-          <div class="feature"><div class="ico">🧑‍✈️</div><h3>Professional Drivers</h3><p>Experienced drivers with a service-first approach.</p></div>
-          <div class="feature"><div class="ico">📍</div><h3>GPS Tracking</h3><p>Better trip coordination and visibility for safer journeys.</p></div>
-          <div class="feature"><div class="ico">⏱️</div><h3>On-Time Pickup</h3><p>Scheduled pickup with direct support for trip coordination.</p></div>
-          <div class="feature"><div class="ico">₹</div><h3>Transparent Pricing</h3><p>Clear fare communication with inclusions and exclusions explained.</p></div>
-          <div class="feature"><div class="ico">💬</div><h3>WhatsApp Support</h3><p>Send trip details instantly and continue booking on WhatsApp.</p></div>
+
+      </div>
+    </section>
+
+    <section class="section" id="routes">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Popular Rajasthan routes</h2>
+          <p>Some of the routes frequently requested by UNO Car customers.</p>
+        </div>
+
+        <div class="routes">
+          <div class="route">
+            <div class="route-name">Jodhpur → Jaisalmer</div>
+            <div class="route-price">Get fare on WhatsApp</div>
+            <div class="route-info">One way · Approx. 4.5–5 hours</div>
+          </div>
+
+          <div class="route">
+            <div class="route-name">Jodhpur → Jaipur</div>
+            <div class="route-price">Get fare on WhatsApp</div>
+            <div class="route-info">One way · Approx. 5.5–6 hours</div>
+          </div>
+
+          <div class="route">
+            <div class="route-name">Jodhpur → Udaipur</div>
+            <div class="route-price">Get fare on WhatsApp</div>
+            <div class="route-info">One way · Approx. 5 hours</div>
+          </div>
+
+          <div class="route">
+            <div class="route-name">Jaisalmer → Jodhpur</div>
+            <div class="route-price">Get fare on WhatsApp</div>
+            <div class="route-info">One way · Approx. 4.5–5 hours</div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section" id="fleet">
-    <div class="container">
-      <div class="section-head"><div><h2>Choose Your Cab</h2><p>Vehicle categories for solo travellers, families and groups.</p></div></div>
-      <div class="fleet-grid">
-        <article class="fleet-card">
-          <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&w=900&q=80" alt="Sedan cab">
-          <div class="fleet-body"><div class="fleet-top"><h3>Sedan</h3><span class="badge">Popular</span></div><div class="fleet-meta"><span>👤 4 passengers</span><span>🧳 2 bags</span></div><a class="btn btn-primary" href="#booking">Book Sedan</a></div>
-        </article>
-        <article class="fleet-card">
-          <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=900&q=80" alt="SUV cab">
-          <div class="fleet-body"><div class="fleet-top"><h3>SUV / Ertiga</h3><span class="badge">Family</span></div><div class="fleet-meta"><span>👤 6 passengers</span><span>🧳 3 bags</span></div><a class="btn btn-primary" href="#booking">Book SUV</a></div>
-        </article>
-        <article class="fleet-card">
-          <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=900&q=80" alt="Premium cab">
-          <div class="fleet-body"><div class="fleet-top"><h3>Innova Crysta</h3><span class="badge">Premium</span></div><div class="fleet-meta"><span>👤 6–7 passengers</span><span>🧳 3–4 bags</span></div><a class="btn btn-primary" href="#booking">Book Crysta</a></div>
-        </article>
-      </div>
-    </div>
-  </section>
+    <section class="section grey" id="why">
+      <div class="container why">
 
-  <section class="section soft" id="destinations">
-    <div class="container">
-      <div class="section-head"><div><h2>Explore Rajasthan With UNO Car</h2><p>Point-to-point transfers, sightseeing and tour cabs across major destinations.</p></div></div>
-      <div class="destination-grid">
-        <a class="destination" href="#"><img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=800&q=80" alt="Jaipur"><span>Jaipur</span></a>
-        <a class="destination" href="#"><img src="https://images.unsplash.com/photo-1566873535350-a3f5d4a804b7?auto=format&fit=crop&w=800&q=80" alt="Jodhpur"><span>Jodhpur</span></a>
-        <a class="destination" href="#"><img src="https://images.unsplash.com/photo-1575994532957-773da2f83eb4?auto=format&fit=crop&w=800&q=80" alt="Jaisalmer"><span>Jaisalmer</span></a>
-        <a class="destination" href="#"><img src="https://images.unsplash.com/photo-1615836245337-f5b9b2303f10?auto=format&fit=crop&w=800&q=80" alt="Udaipur"><span>Udaipur</span></a>
-      </div>
-    </div>
-  </section>
+        <div class="why-photo">
+          <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=1200&q=80" alt="Rajasthan travel">
+          <div class="support-badge">
+            <strong>24×7</strong>
+            <span>Booking support</span>
+          </div>
+        </div>
 
-  <section class="section">
-    <div class="container">
-      <div class="cta">
-        <div><h2>Hotel or Travel Agent?</h2><p>Partner with UNO Car for dependable guest transfers, airport pickups and Rajasthan routes.</p></div>
-        <a class="btn btn-primary" href="https://wa.me/91XXXXXXXXXX" target="_blank">Become a B2B Partner</a>
-      </div>
-    </div>
-  </section>
+        <div>
+          <div class="section-heading">
+            <h2>A straightforward way to book a cab</h2>
+            <p>Tell us where you are going. We help with the cab and trip coordination.</p>
+          </div>
 
-  <section class="section soft">
-    <div class="container">
-      <div class="section-head"><div><h2>What Customers Say</h2><p>Replace these demo reviews with verified Google reviews before launch.</p></div></div>
-      <div class="reviews">
-        <div class="review"><div class="stars">★★★★★</div><p>“Clean cab, polite driver and smooth Jodhpur to Jaisalmer trip. Booking was easy.”</p><strong>Demo Review</strong></div>
-        <div class="review"><div class="stars">★★★★★</div><p>“Driver arrived on time and fare was explained clearly before the journey.”</p><strong>Demo Review</strong></div>
-        <div class="review"><div class="stars">★★★★★</div><p>“Good option for family travel in Rajasthan. Quick response on WhatsApp.”</p><strong>Demo Review</strong></div>
-      </div>
-    </div>
-  </section>
+          <div class="benefits">
+            <div class="benefit">
+              <div class="benefit-icon">❄️</div>
+              <h3>Clean AC Cars</h3>
+              <p>Vehicle options suitable for city and Rajasthan highway travel.</p>
+            </div>
 
-  <section class="section" id="faq">
-    <div class="container">
-      <div class="section-head"><div><h2>Frequently Asked Questions</h2><p>Common questions about booking, payment, tolls and trip service.</p></div></div>
-      <div class="faq">
-        <details><summary>How do I book a one way cab?</summary><p>Enter pickup, drop, date and trip details in the form. Your enquiry opens in WhatsApp for quick confirmation.</p></details>
-        <details><summary>Are toll and parking charges included?</summary><p>Inclusions can vary by route. UNO Car should confirm toll, parking, state tax and driver allowance before booking.</p></details>
-        <details><summary>Can I book an airport pickup?</summary><p>Yes. Choose the Airport tab and share your pickup/drop details and travel time.</p></details>
-        <details><summary>Can I choose my vehicle?</summary><p>Yes. Sedan, SUV/Ertiga, Innova Crysta and other available categories can be offered according to passengers and luggage.</p></details>
-        <details><summary>Is support available during the trip?</summary><p>The website is designed to promote 24×7 booking and trip support. Replace contact placeholders with your actual support details.</p></details>
-        <details><summary>Can hotels and travel agents partner with UNO Car?</summary><p>Yes. A dedicated B2B partnership call-to-action is included for hotels and travel agents.</p></details>
+            <div class="benefit">
+              <div class="benefit-icon">🚗</div>
+              <h3>Experienced Drivers</h3>
+              <p>Drivers familiar with common Rajasthan routes and destinations.</p>
+            </div>
+
+            <div class="benefit">
+              <div class="benefit-icon">📍</div>
+              <h3>Trip Coordination</h3>
+              <p>Pickup details can be shared directly with our team.</p>
+            </div>
+
+            <div class="benefit">
+              <div class="benefit-icon">₹</div>
+              <h3>Fare Before Booking</h3>
+              <p>Confirm the fare and trip details before you travel.</p>
+            </div>
+
+            <div class="benefit">
+              <div class="benefit-icon">⏱</div>
+              <h3>Planned Pickup</h3>
+              <p>Share the pickup point clearly so the driver can coordinate with you.</p>
+            </div>
+
+            <div class="benefit">
+              <div class="benefit-icon">💬</div>
+              <h3>WhatsApp Booking</h3>
+              <p>Continue your enquiry with the UNO Car team on WhatsApp.</p>
+            </div>
+          </div>
+        </div>
+
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section class="section" id="fleet">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Cars available for your trip</h2>
+          <p>Choose a category according to the number of passengers and luggage.</p>
+        </div>
+
+        <div class="fleet">
+          <article class="car-card">
+            <img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&w=900&q=80" alt="Sedan taxi">
+            <div class="car-content">
+              <div class="car-top">
+                <h3>Sedan</h3>
+                <span class="car-tag">Popular</span>
+              </div>
+              <div class="car-meta">
+                <span>4 passengers</span>
+                <span>2 bags</span>
+              </div>
+              <a class="btn btn-yellow" href="#booking">Ask for Sedan</a>
+            </div>
+          </article>
+
+          <article class="car-card">
+            <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=900&q=80" alt="SUV taxi">
+            <div class="car-content">
+              <div class="car-top">
+                <h3>SUV / Ertiga</h3>
+                <span class="car-tag">Family</span>
+              </div>
+              <div class="car-meta">
+                <span>6 passengers</span>
+                <span>3 bags</span>
+              </div>
+              <a class="btn btn-yellow" href="#booking">Ask for SUV</a>
+            </div>
+          </article>
+
+          <article class="car-card">
+            <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=900&q=80" alt="Innova Crysta taxi">
+            <div class="car-content">
+              <div class="car-top">
+                <h3>Innova Crysta</h3>
+                <span class="car-tag">Premium</span>
+              </div>
+              <div class="car-meta">
+                <span>6–7 passengers</span>
+                <span>3–4 bags</span>
+              </div>
+              <a class="btn btn-yellow" href="#booking">Ask for Crysta</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section grey" id="destinations">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Popular destinations</h2>
+          <p>Book point-to-point travel and outstation trips around Rajasthan.</p>
+        </div>
+
+        <div class="places">
+          <a class="place" href="#booking">
+            <img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=800&q=80" alt="Jaipur">
+            <strong>Jaipur</strong>
+          </a>
+
+          <a class="place" href="#booking">
+            <img src="https://images.unsplash.com/photo-1566873535350-a3f5d4a804b7?auto=format&fit=crop&w=800&q=80" alt="Jodhpur">
+            <strong>Jodhpur</strong>
+          </a>
+
+          <a class="place" href="#booking">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3LEV7L290pn5XiJZjegZ2zhopH0Hlw2UtvpK3WfyGbg&s=10" alt="Jaisalmer">
+            <strong>Jaisalmer</strong>
+          </a>
+
+          <a class="place" href="#booking">
+            <img src="https://images.unsplash.com/photo-1615836245337-f5b9b2303f10?auto=format&fit=crop&w=800&q=80" alt="Udaipur">
+            <strong>Udaipur</strong>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="partner">
+          <div>
+            <h2>Hotels & travel agents</h2>
+            <p>Need regular guest transfers or outstation cabs? Talk to UNO Car about a B2B arrangement.</p>
+          </div>
+          <a class="btn btn-yellow" href="https://wa.me/919462661966" target="_blank" rel="noopener">Talk on WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section grey" id="branches">
+      <div class="container">
+        <div class="section-heading">
+          <h2>UNO Car locations</h2>
+          <p>Contact the UNO Car team for cab and self-drive enquiries in these cities.</p>
+        </div>
+
+        <div class="branches">
+
+          <div class="branch">
+            <div class="branch-icon">📍</div>
+            <h3>UNO Car Jodhpur</h3>
+            <p class="branch-address">
+              Jato Ka Niyoti Nohra, Main Market, Shiv Mandir Road, Ratanada, Jodhpur, Rajasthan – 342001
+            </p>
+            <a class="branch-phone" href="tel:+919462661966">📞 94626 61966</a>
+            <p class="branch-services">Cab & Taxi · Self-Drive Car Rental · One-Way Cab · Airport Transfer · Sightseeing · Outstation</p>
+            <a class="whatsapp" href="https://wa.me/919462661966" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+
+          <div class="branch">
+            <div class="branch-icon">📍</div>
+            <h3>UNO Car Jaipur</h3>
+            <p class="branch-address">
+              Plot No. 239, Dr. Rajendra Prasad Nagar-A, Rani Sati Nagar, Nirman Nagar, Mansarovar, Jaipur, Rajasthan – 302020
+            </p>
+            <a class="branch-phone" href="tel:+919462661966">📞 94626 61966</a>
+            <p class="branch-services">Cab & Taxi · Self-Drive Car Rental · One-Way Cab · Airport Transfer · Sightseeing · Outstation</p>
+            <a class="whatsapp" href="https://wa.me/919462661966" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+
+          <div class="branch">
+            <div class="branch-icon">📍</div>
+            <h3>UNO Car Jaisalmer</h3>
+            <p class="branch-address">
+              Fort Parking, Near Hotel Gulab Niwas, Jaisalmer, Rajasthan – 345001
+            </p>
+            <a class="branch-phone" href="tel:+919462661966">📞 94626 61966</a>
+            <p class="branch-services">Cab & Taxi · One-Way Cab · Sightseeing · Outstation · Airport Transfer</p>
+            <a class="whatsapp" href="https://wa.me/919462661966" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+
+          <div class="branch">
+            <div class="branch-icon">📍</div>
+            <h3>UNO Car Pushkar</h3>
+            <p class="branch-address">
+              Varah Ghat, Main Chowk, Pushkar, Ajmer, Rajasthan – 305022
+            </p>
+            <a class="branch-phone" href="tel:+919462661966">📞 94626 61966</a>
+            <p class="branch-services">Self-Drive Car Rental · One-Way Cab · Sightseeing · Outstation</p>
+            <a class="whatsapp" href="https://wa.me/919462661966" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+
+          <div class="branch">
+            <div class="branch-icon">📍</div>
+            <h3>UNO Car Udaipur</h3>
+            <p class="branch-address">
+              First Floor, Salumber House, 88, Gangaur Ghat Marg, Old City, Udaipur, Rajasthan – 313004
+            </p>
+            <a class="branch-phone" href="tel:+919462661966">📞 94626 61966</a>
+            <p class="branch-services">Self-Drive Car Rental · One-Way Cab · Sightseeing · Outstation</p>
+            <a class="whatsapp" href="https://wa.me/919462661966" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Customer feedback</h2>
+          <p>Replace these examples with genuine customer reviews before publishing the website.</p>
+        </div>
+
+        <div class="reviews">
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>“Clean cab and a smooth trip. The booking process was simple.”</p>
+          </div>
+
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>“Driver reached the pickup point on time and the fare was explained before the journey.”</p>
+          </div>
+
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>“Good option for travelling between Rajasthan cities. WhatsApp response was quick.”</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section grey" id="faq">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Questions before booking?</h2>
+          <p>Some common questions about an UNO Car booking.</p>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>How can I book a one way cab?</summary>
+            <p>Enter your pickup and drop location in the booking form. Your enquiry will open in WhatsApp for confirmation.</p>
+          </details>
+
+          <details>
+            <summary>Will I know the fare before booking?</summary>
+            <p>UNO Car can confirm the applicable fare and trip details before you finalize the booking.</p>
+          </details>
+
+          <details>
+            <summary>Can I book an airport transfer?</summary>
+            <p>Yes. Select the Airport option and send your pickup and drop details to the UNO Car team.</p>
+          </details>
+
+          <details>
+            <summary>Which cars can I request?</summary>
+            <p>Sedan, SUV/Ertiga and Innova Crysta categories can be requested subject to availability.</p>
+          </details>
+
+          <details>
+            <summary>Can hotels and travel agents contact UNO Car?</summary>
+            <p>Yes. Hotels and travel agents can contact the team regarding regular guest transfers and B2B requirements.</p>
+          </details>
+
+          <details>
+            <summary>Are tolls and parking included?</summary>
+            <p>This can vary by route and booking. Confirm toll, parking, taxes and driver charges with UNO Car before the trip.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <footer>
     <div class="container">
+
       <div class="footer-grid">
+
         <div>
-          <div class="brand" style="color:white"><span class="brand-badge">🚕</span> UNO Car</div>
-          <p style="font-size:13px;line-height:1.7;max-width:360px">One-way, round trip, airport taxi, local sightseeing and Rajasthan tour cab service.</p>
+          <div class="logo">
+            <span class="logo-mark">🚕</span>
+            UNO <span>Car</span>
+          </div>
+          <p class="footer-about">
+            One way, airport and outstation cab bookings across Rajasthan.
+            Share your trip details with UNO Car and confirm the available vehicle and fare.
+          </p>
         </div>
-        <div><h4>Services</h4><a href="#">One Way Cab</a><a href="#">Round Trip Cab</a><a href="#">Airport Taxi</a><a href="#">Sightseeing</a></div>
-        <div><h4>Top Cities</h4><a href="#">Jodhpur</a><a href="#">Jaisalmer</a><a href="#">Jaipur</a><a href="#">Udaipur</a></div>
-        <div><h4>Company</h4><a href="#">About Us</a><a href="#">Contact</a><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
+
+        <div>
+          <h4>Services</h4>
+          <a href="#booking">One Way Cab</a>
+          <a href="#booking">Round Trip</a>
+          <a href="#booking">Airport Transfer</a>
+          <a href="#booking">Sightseeing</a>
+        </div>
+
+        <div>
+          <h4>Cities</h4>
+          <a href="#branches">Jodhpur</a>
+          <a href="#branches">Jaisalmer</a>
+          <a href="#branches">Jaipur</a>
+          <a href="#branches">Udaipur</a>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <a href="blog.php">Blog</a>
+          <a href="#branches">Contact</a>
+          <a href="privacy-policy.php">Privacy Policy</a>
+          <a href="terms.php">Terms</a>
+        </div>
+
       </div>
-      <div class="copyright">© 2026 UNO Car. All rights reserved. · Replace demo content, photos, pricing and phone number before launch.</div>
+
+      <div class="copyright">
+        © 2026 UNO Car. All rights reserved.
+      </div>
+
+      <div class="admin-link">
+        <a href="admins/login.php">Admin Login</a>
+      </div>
+
     </div>
   </footer>
 
   <div class="mobile-bar">
-    <a href="tel:+91XXXXXXXXXX">☎ Call</a>
-    <a href="https://wa.me/91XXXXXXXXXX" target="_blank">💬 WhatsApp</a>
-    <a href="#booking" class="book">Book Now</a>
+    <a href="tel:+919462661966">☎ Call</a>
+    <a href="https://wa.me/919462661966" target="_blank" rel="noopener">💬 WhatsApp</a>
+    <a class="book" href="#booking">Book Now</a>
   </div>
-  <div class="toast" id="toast">Opening WhatsApp with your trip details…</div>
 
   <script>
-    const tabs = document.querySelectorAll('.tab');
-    const tripType = document.getElementById('tripType');
-    tabs.forEach(tab=>{
-      tab.addEventListener('click',()=>{
-        tabs.forEach(t=>t.classList.remove('active'));
-        tab.classList.add('active');
-        tripType.value=tab.dataset.trip;
+    const whatsappNumber = "919462661966";
+
+    const tripButtons = document.querySelectorAll(".trip-tab");
+    const tripType = document.getElementById("tripType");
+
+    tripButtons.forEach(function(button){
+      button.addEventListener("click", function(){
+        tripButtons.forEach(function(item){
+          item.classList.remove("active");
+        });
+
+        button.classList.add("active");
+        tripType.value = button.dataset.trip;
       });
     });
 
-    const today = new Date();
-    const yyyy = today.getFullYear();
-    const mm = String(today.getMonth()+1).padStart(2,'0');
-    const dd = String(today.getDate()).padStart(2,'0');
-    document.getElementById('date').min = `${yyyy}-${mm}-${dd}`;
+    document.getElementById("cabForm").addEventListener("submit", function(event){
+      event.preventDefault();
 
-    document.getElementById('cabForm').addEventListener('submit', function(e){
-      e.preventDefault();
-      const data = {
-        trip: document.getElementById('tripType').value,
-        pickup: document.getElementById('pickup').value.trim(),
-        drop: document.getElementById('drop').value.trim(),
-        date: document.getElementById('date').value,
-        time: document.getElementById('time').value,
-        passengers: document.getElementById('passengers').value,
-        vehicle: document.getElementById('vehicle').value,
-        name: document.getElementById('name').value.trim(),
-        mobile: document.getElementById('mobile').value.trim()
-      };
-      const msg =
+      const pickup = document.getElementById("pickup").value.trim();
+      const drop = document.getElementById("drop").value.trim();
+      const trip = tripType.value;
+
+      if(!pickup || !drop){
+        return;
+      }
+
+      const message =
 `Hello UNO Car,
-I want to book a cab.
 
-Trip Type: ${data.trip}
-Pickup: ${data.pickup}
-Drop: ${data.drop}
-Travel Date: ${data.date}
-Pickup Time: ${data.time}
-Passengers: ${data.passengers}
-Vehicle: ${data.vehicle}
-Name: ${data.name}
-Mobile: ${data.mobile}
+I want to enquire about a cab.
 
-Please share availability and best fare.`;
+Trip Type: ${trip}
+Pickup: ${pickup}
+Drop: ${drop}
 
-      const whatsappNumber = '91XXXXXXXXXX'; // Replace with actual WhatsApp number
-      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
-      const toast = document.getElementById('toast');
-      toast.classList.add('show');
-      setTimeout(()=>toast.classList.remove('show'),2200);
-      window.open(url,'_blank');
+Please share availability and the best fare.`;
+
+      const whatsappUrl =
+        "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(message);
+
+      window.open(whatsappUrl, "_blank", "noopener");
     });
   </script>
+
 </body>
 </html>
