@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Your Website &amp; Automation Project — [BRAND NAME]</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+          },
+          colors: {
+            cream: '#FAF8F5',
+            paper: '#F3EFEA',
+            ink: '#141414',
+            brandOrange: '#FF5722',
+            trustGreen: '#059669',
+            sunYellow: '#FACC15',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-cream text-ink font-sans antialiased min-h-screen">
+
+  <!-- Top Header -->
+  <header class="bg-cream border-b-2 border-ink sticky top-0 z-40">
+    <div class="container mx-auto px-4 sm:px-6 h-18 py-3.5 flex items-center justify-between max-w-5xl">
+      <a href="index.html" class="flex items-center space-x-2 text-ink hover:text-brandOrange transition-colors text-xs font-black uppercase tracking-wider">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        <span>Back to Home</span>
+      </a>
+
+      <div class="flex items-center space-x-2">
+        <div class="w-8 h-8 rounded-lg bg-ink text-brandOrange flex items-center justify-center font-bold border border-ink">
+          <i data-lucide="code" class="w-4 h-4 text-brandOrange"></i>
+        </div>
+        <span class="font-display font-black text-sm sm:text-base text-ink">[BRAND NAME] Studio</span>
+      </div>
+
+      <div class="text-xs text-trustGreen font-bold flex items-center gap-1">
+        <span class="w-2 h-2 rounded-full bg-trustGreen animate-ping"></span>
+        <span class="hidden sm:inline">Live Milestone Tracker</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 sm:px-6 py-12 max-w-3xl space-y-8">
+    
+    <div class="text-center space-y-2">
+      <span class="text-xs font-black uppercase text-brandOrange tracking-wider">CLIENT PORTAL</span>
+      <h1 class="text-3xl sm:text-4xl font-display font-black uppercase text-ink">Track Your Project Progress</h1>
+      <p class="text-xs text-ink/70 font-medium">Enter your Order ID and Access Password from your confirmation screen.</p>
+    </div>
+
+    <!-- Tracking Login Form -->
+    <div class="studio-card p-6 sm:p-8 rounded-3xl space-y-4">
+      <form id="trackForm" onsubmit="handleTrackProject(event)" class="space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-black uppercase text-ink mb-1">Order ID</label>
+            <input type="text" id="trackOrderId" required placeholder="e.g. ORD-89421" class="w-full px-3.5 py-3 rounded-xl border-2 border-ink bg-cream font-mono font-bold text-sm outline-none uppercase">
+          </div>
+          <div>
+            <label class="block text-xs font-black uppercase text-ink mb-1">Tracking Password / PIN</label>
+            <input type="text" id="trackPassword" required placeholder="e.g. PASS-4921" class="w-full px-3.5 py-3 rounded-xl border-2 border-ink bg-cream font-mono font-bold text-sm outline-none uppercase">
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-4 btn-primary-orange rounded-xl font-black text-xs uppercase tracking-wider">
+          CHECK PROJECT STATUS &rarr;
+        </button>
+
+        <p class="text-center text-[11px] text-ink/60 font-semibold">
+          Demo tracking access: Order ID: <code class="bg-paper px-1 font-bold">ORD-89421</code> | Password: <code class="bg-paper px-1 font-bold">PASS-4921</code>
+        </p>
+      </form>
+    </div>
+
+    <!-- TRACKING RESULT CARD -->
+    <div id="trackingResult" class="hidden studio-card p-6 sm:p-8 rounded-3xl space-y-6">
+      
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-4 border-b-2 border-ink/10 gap-2">
+        <div>
+          <span class="text-[10px] font-black uppercase text-brandOrange">ORDER FOUND</span>
+          <h3 id="resBusinessName" class="text-2xl font-black font-display text-ink">Patel Solar Solutions</h3>
+          <div class="text-xs text-ink/70 font-medium">Client: <span id="resClientName" class="font-bold text-ink">Ramesh Patel</span> | Plan: <span id="resPlanName" class="font-bold text-brandOrange">Pro Business Suite</span></div>
+        </div>
+        <div class="text-right">
+          <div class="text-xs font-mono font-bold text-ink">ID: <span id="resOrderId">#ORD-89421</span></div>
+          <div class="text-[11px] text-trustGreen font-bold mt-0.5">● Active In Engineering</div>
+        </div>
+      </div>
+
+      <!-- 5-Step Milestone Progress Bar -->
+      <div class="space-y-3">
+        <h4 class="text-xs font-black uppercase text-ink">Project Milestones:</h4>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-5 gap-2" id="milestonesContainer">
+          <!-- Dynamically highlighted based on stage -->
+        </div>
+      </div>
+
+      <!-- Live Developer Note from Admin -->
+      <div class="p-5 bg-paper rounded-2xl border-2 border-ink space-y-2">
+        <div class="flex items-center space-x-2 text-xs font-black uppercase text-brandOrange">
+          <i data-lucide="message-square" class="w-4 h-4"></i>
+          <span>Latest Engineering Update:</span>
+        </div>
+        <p id="resStatusNote" class="text-xs text-ink/80 font-medium leading-relaxed">
+          Solar quotation calculator &amp; digital letterhead integrated. Generating 4K AI video ads.
+        </p>
+      </div>
+
+      <div class="text-center pt-2">
+        <a href="https://wa.me/919876543210" target="_blank" class="text-xs font-black uppercase text-trustGreen hover:underline inline-flex items-center gap-1">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Direct WhatsApp with Lead Developer &rarr;</span>
+        </a>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script>
+    async function handleTrackProject(e) {
+      e.preventDefault();
+      const oid = document.getElementById('trackOrderId').value.trim().toUpperCase();
+      const pwd = document.getElementById('trackPassword').value.trim().toUpperCase();
+
+      let orders = [];
+      const cached = localStorage.getItem('agency_site_data');
+      if (cached) {
+        try {
+          const parsed = JSON.parse(cached);
+          if (parsed.orders) orders = parsed.orders;
+        } catch(e){}
+      }
+
+      if (orders.length === 0) {
+        try {
+          const res = await fetch('data.json');
+          if (res.ok) {
+            const json = await res.json();
+            orders = json.orders || [];
+          }
+        } catch(e){}
+      }
+
+      const found = orders.find(o => 
+        o.orderId.toUpperCase() === oid && 
+        o.trackingPassword.toUpperCase() === pwd
+      );
+
+      if (found) {
+        renderTrackingResult(found);
+      } else {
+        alert('❌ Invalid Order ID or Password. Please check your confirmation receipt.');
+      }
+    }
+
+    function renderTrackingResult(order) {
+      document.getElementById('resBusinessName').textContent = order.business;
+      document.getElementById('resClientName').textContent = order.clientName;
+      document.getElementById('resPlanName').textContent = order.planName;
+      document.getElementById('resOrderId').textContent = '#' + order.orderId;
+      document.getElementById('resStatusNote').textContent = order.statusNote || 'Our developer is actively working on your project deliverables.';
+
+      const stages = [
+        "1. Brief Received",
+        "2. UI Wireframe",
+        "3. Tool Integration",
+        "4. AI Video Ads",
+        "5. Live Handover"
+      ];
+
+      const currentStage = order.stage || 1;
+
+      const milestonesEl = document.getElementById('milestonesContainer');
+      milestonesEl.innerHTML = stages.map((st, idx) => {
+        const stageNum = idx + 1;
+        const isDone = stageNum < currentStage;
+        const isCurrent = stageNum === currentStage;
+
+        let bgClass = "bg-cream border-ink/30 text-ink/40";
+        if (isDone) bgClass = "bg-trustGreen text-white border-ink font-black";
+        if (isCurrent) bgClass = "bg-brandOrange text-white border-ink font-black shadow-[2px_2px_0px_#141414]";
+
+        return `
+          <div class="p-3 rounded-xl border-2 ${bgClass} text-center space-y-1">
+            <div class="text-[10px] uppercase">${isDone ? '✓ Completed' : isCurrent ? '⚡ In Progress' : 'Queued'}</div>
+            <div class="text-[11px]">${st}</div>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('trackingResult').classList.remove('hidden');
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) window.lucide.createIcons();
+
+      // Check query params for instant tracking
+      const params = new URLSearchParams(window.location.search);
+      const qOrderId = params.get('orderId');
+      const qPwd = params.get('pwd');
+      if (qOrderId && qPwd) {
+        document.getElementById('trackOrderId').value = qOrderId;
+        document.getElementById('trackPassword').value = qPwd;
+        handleTrackProject(new Event('submit'));
+      }
+    });
+  </script>
+</body>
+</html>

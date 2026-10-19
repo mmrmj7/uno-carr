@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout &amp; Book Your Website — [BRAND NAME]</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+          },
+          colors: {
+            cream: '#FAF8F5',
+            paper: '#F3EFEA',
+            ink: '#141414',
+            trustGreen: '#059669',
+            brandOrange: '#FF5722',
+            sunYellow: '#FACC15',
+            phonepe: '#5f259f'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-cream text-ink font-sans antialiased selection:bg-sunYellow selection:text-ink relative overflow-x-hidden min-h-screen">
+
+  <!-- CUSTOM INTERACTIVE CURSOR -->
+  <div class="custom-cursor-dot" id="cursorDot"></div>
+  <div class="custom-cursor-ring" id="cursorRing"></div>
+
+  <!-- CHECKOUT TOP HEADER -->
+  <header class="border-b-2 border-ink bg-cream/90 backdrop-blur-md sticky top-0 z-40">
+    <div class="container mx-auto px-4 sm:px-6 h-18 py-3.5 flex items-center justify-between max-w-6xl">
+      <a href="index.html" class="flex items-center space-x-2 text-ink hover:text-trustGreen transition-colors text-xs font-black uppercase tracking-wider">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        <span>Back to Home</span>
+      </a>
+
+      <div class="flex items-center space-x-2 shrink-0">
+        <div class="w-8 h-8 rounded-lg bg-ink text-sunYellow flex items-center justify-center font-bold border border-ink">
+          <i data-lucide="code" class="w-4 h-4 text-trustGreen"></i>
+        </div>
+        <span class="font-display font-black text-sm sm:text-base text-ink brand-name-text">[BRAND NAME]</span>
+      </div>
+
+      <div class="flex items-center space-x-1.5 text-xs text-trustGreen font-black uppercase tracking-wider">
+        <i data-lucide="shield-check" class="w-4 h-4"></i>
+        <span class="hidden sm:inline">100% Secure Checkout</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CHECKOUT CONTENT -->
+  <main class="container mx-auto px-4 sm:px-6 py-10 lg:py-14 max-w-6xl relative z-10">
+    
+    <div class="mb-10 text-center max-w-xl mx-auto space-y-2">
+      <span class="text-xs font-black uppercase tracking-wider text-trustGreen">FAST ONBOARDING CHECKOUT</span>
+      <h1 class="text-3xl sm:text-4xl font-display font-black uppercase text-ink">Book Your Website Project</h1>
+      <p class="text-xs text-ink/70 font-medium">Simple 2-minute booking. No password or login required. Our engineers start within 2 hours.</p>
+    </div>
+
+    <!-- 2 Column Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- LEFT COLUMN: Selected Plan & Coupon Box -->
+      <div class="lg:col-span-5 studio-card p-6 sm:p-7 rounded-3xl space-y-6">
+        
+        <div class="flex justify-between items-center pb-4 border-b-2 border-ink/10">
+          <div>
+            <span class="text-[11px] font-black uppercase text-trustGreen">Selected Plan</span>
+            <h3 id="displayPlanTitle" class="text-xl font-black text-ink font-display">Pro Business Suite</h3>
+          </div>
+          <span class="px-2.5 py-1 rounded-full bg-trustGreen text-white text-[10px] font-black uppercase">
+            5–7 Days Delivery
+          </span>
+        </div>
+
+        <!-- Plan Quick Switcher -->
+        <div>
+          <label class="block text-xs font-black uppercase text-ink/70 mb-2">Change Selected Plan:</label>
+          <div id="planSwitcherGrid" class="grid grid-cols-2 gap-2 text-xs">
+            <button onclick="selectPlan('Basic Starter', 4999)" class="plan-tab-btn p-2.5 rounded-xl border-2 border-ink bg-paper hover:bg-white text-left font-bold" data-plan="Basic Starter">
+              <div class="text-[10px] text-ink/60 uppercase">Basic Starter</div>
+              <div class="font-black text-ink">₹4,999</div>
+            </button>
+            <button onclick="selectPlan('Growth Business', 9999)" class="plan-tab-btn p-2.5 rounded-xl border-2 border-ink bg-paper hover:bg-white text-left font-bold" data-plan="Growth Business">
+              <div class="text-[10px] text-ink/60 uppercase">Growth Business</div>
+              <div class="font-black text-ink">₹9,999</div>
+            </button>
+            <button onclick="selectPlan('Pro Business Suite', 16999)" class="plan-tab-btn p-2.5 rounded-xl border-2 border-trustGreen bg-trustGreen/10 text-left font-black text-trustGreen" data-plan="Pro Business Suite">
+              <div class="text-[10px] text-trustGreen uppercase">Pro Business Suite</div>
+              <div class="font-black text-trustGreen">₹16,999</div>
+            </button>
+            <button onclick="selectPlan('Enterprise AI Automation', 29999)" class="plan-tab-btn p-2.5 rounded-xl border-2 border-ink bg-paper hover:bg-white text-left font-bold" data-plan="Enterprise AI Automation">
+              <div class="text-[10px] text-ink/60 uppercase">Enterprise AI</div>
+              <div class="font-black text-ink">₹29,999</div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Included Checklist -->
+        <div class="space-y-2 text-xs font-bold text-ink pt-2 border-t-2 border-ink/10">
+          <div class="flex items-center space-x-2">
+            <span class="text-trustGreen">✓</span>
+            <span>Custom Mobile &amp; Desktop Handcoded Website</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="text-trustGreen">✓</span>
+            <span>Online Quotation &amp; Work Completion Generator</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="text-trustGreen">✓</span>
+            <span>Cinematic AI Promotional Storytelling Video Ads</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="text-trustGreen">✓</span>
+            <span>PhonePe Direct UPI Checkout &amp; WhatsApp Integration</span>
+          </div>
+        </div>
+
+        <!-- Coupon Code Engine -->
+        <div class="pt-4 border-t-2 border-ink/10">
+          <label class="block text-xs font-black uppercase text-ink mb-1.5">Have A Discount or VIP Coupon?</label>
+          <div class="flex space-x-2">
+            <input type="text" id="couponInput" placeholder="Try VIP50 or DISCOUNT10" class="flex-1 uppercase font-mono px-3.5 py-2.5 rounded-xl border-2 border-ink bg-cream text-ink text-xs font-bold outline-none focus:ring-2 focus:ring-trustGreen">
+            <button type="button" onclick="applyCoupon()" class="px-5 py-2.5 btn-primary-green rounded-xl text-xs font-black uppercase">
+              Apply
+            </button>
+          </div>
+          <div id="couponMessage" class="text-xs mt-1.5 hidden font-bold"></div>
+          <div class="text-[11px] text-ink/60 font-semibold mt-1">Hint: Try <button onclick="quickApplyCoupon('VIP50')" class="text-trustGreen underline font-bold font-mono">VIP50</button> for 50% discount!</div>
+        </div>
+
+        <!-- Price Breakdown -->
+        <div class="bg-paper p-4 rounded-2xl border-2 border-ink space-y-2 text-xs font-bold">
+          <div class="flex justify-between text-ink/70">
+            <span>Base Package Price:</span>
+            <span id="priceBaseDisplay" class="font-black text-ink">₹16,999</span>
+          </div>
+          <div class="flex justify-between text-trustGreen" id="discountRow" style="display: none;">
+            <span>Coupon Discount Applied:</span>
+            <span id="priceDiscountDisplay">- ₹0</span>
+          </div>
+          <div class="flex justify-between items-center pt-2 border-t-2 border-ink/10 text-sm font-black text-ink">
+            <span>Net Payable Amount:</span>
+            <span id="priceFinalDisplay" class="text-trustGreen text-xl font-display font-black">₹16,999</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: Fast Business Details & PhonePe Pay -->
+      <div class="lg:col-span-7 studio-card-green p-6 sm:p-8 rounded-3xl">
+        
+        <div class="mb-6 pb-4 border-b-2 border-trustGreen/20">
+          <span class="text-[11px] font-black uppercase text-trustGreen">Step 2: Client Details &amp; Payment</span>
+          <h2 class="text-2xl font-black text-ink mt-0.5 font-display">Quick 3-Field Onboarding</h2>
+          <p class="text-xs text-ink/70 font-medium">Business owners don't spend time filling endless forms. Just 3 fields below.</p>
+        </div>
+
+        <form id="checkoutForm" onsubmit="handleProceedToPayment(event)" class="space-y-4">
+          
+          <div>
+            <label class="block text-xs font-black uppercase text-ink mb-1">Your Full Name *</label>
+            <input type="text" id="custName" required placeholder="e.g. Ramesh Patel" class="w-full px-3.5 py-3 rounded-xl border-2 border-ink bg-cream text-ink text-sm font-semibold outline-none focus:ring-2 focus:ring-trustGreen">
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-black uppercase text-ink mb-1">WhatsApp / Phone *</label>
+              <input type="tel" id="custPhone" required placeholder="+91 98765 00000" class="w-full px-3.5 py-3 rounded-xl border-2 border-ink bg-cream text-ink text-sm font-semibold outline-none focus:ring-2 focus:ring-trustGreen">
+            </div>
+            <div>
+              <label class="block text-xs font-black uppercase text-ink mb-1">Your Business Name *</label>
+              <input type="text" id="custBusiness" required placeholder="e.g. Patel Solar Enterprises" class="w-full px-3.5 py-3 rounded-xl border-2 border-ink bg-cream text-ink text-sm font-semibold outline-none focus:ring-2 focus:ring-trustGreen">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-black uppercase text-ink mb-1">Email (For Order Confirmation Receipt) *</label>
+            <input type="email" id="custEmail" required placeholder="name@business.com" class="w-full px-3.5 py-3 rounded-xl border-2 border-ink bg-cream text-ink text-sm font-semibold outline-none focus:ring-2 focus:ring-trustGreen">
+          </div>
+
+          <div>
+            <label class="block text-xs font-black uppercase text-ink mb-1">Special Requirements / Notes (Optional)</label>
+            <textarea id="custNotes" rows="2" placeholder="e.g. We need quotation calculator for rooftop solar and 2 video reels..." class="w-full px-3.5 py-2.5 rounded-xl border-2 border-ink bg-cream text-ink text-sm font-semibold outline-none focus:ring-2 focus:ring-trustGreen"></textarea>
+          </div>
+
+          <!-- PhonePe Payment Option Badge -->
+          <div class="pt-3 border-t-2 border-trustGreen/20 space-y-2">
+            <label class="block text-xs font-black uppercase text-ink">Payment Option:</label>
+            <div class="p-4 rounded-2xl bg-paper border-2 border-phonepe flex items-center justify-between">
+              <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-phonepe text-white flex items-center justify-center font-black text-xl shadow-sm">
+                  पे
+                </div>
+                <div>
+                  <div class="font-bold text-sm text-ink flex items-center gap-2">
+                    <span>PhonePe UPI / QR Gateway</span>
+                    <span class="px-2 py-0.5 rounded-full bg-trustGreen text-white text-[9px] font-black uppercase">Verified</span>
+                  </div>
+                  <div class="text-[11px] text-ink/70 font-medium">Instant transfer via PhonePe, GPay, Paytm, or BHIM</div>
+                </div>
+              </div>
+              <i data-lucide="check-circle" class="w-5 h-5 text-trustGreen shrink-0"></i>
+            </div>
+          </div>
+
+          <!-- Pay Button -->
+          <div class="pt-2">
+            <button type="submit" class="w-full py-4 rounded-xl bg-phonepe hover:bg-purple-900 text-white font-black text-xs uppercase tracking-wider shadow-[4px_4px_0px_#141414] border-2 border-ink transition-all flex items-center justify-center space-x-2">
+              <span>PAY &amp; COMPLETE BOOKING WITH PHONEPE &rarr;</span>
+            </button>
+            <p class="text-center text-[11px] text-ink/70 font-semibold mt-2.5 flex items-center justify-center gap-1.5">
+              <i data-lucide="lock" class="w-3.5 h-3.5 text-trustGreen"></i>
+              <span>Instant confirmation email will be sent. Developer calls in &lt; 2 hours.</span>
+            </p>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- PHONEPE MODAL SIMULATOR -->
+  <div id="phonepeModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink/70 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
+    <div class="studio-card rounded-3xl max-w-md w-full p-6 sm:p-8 text-center space-y-4">
+      <div class="w-16 h-16 rounded-2xl bg-phonepe text-white mx-auto flex items-center justify-center shadow-md font-black text-3xl border-2 border-ink">
+        पे
+      </div>
+      <div>
+        <h4 class="text-xl font-black font-display text-ink">PhonePe UPI Gateway</h4>
+        <p class="text-xs text-ink/70 font-medium mt-0.5">Scan QR or copy UPI ID to transfer</p>
+      </div>
+
+      <div class="p-4 bg-paper rounded-2xl border-2 border-ink flex flex-col items-center justify-center space-y-3">
+        <!-- Stylized QR Code Graphic -->
+        <div class="w-44 h-44 bg-white p-3 rounded-xl border-2 border-ink shadow-sm flex flex-col items-center justify-center relative">
+          <div class="grid grid-cols-6 gap-1 w-full h-full p-1 bg-slate-100 rounded">
+            <div class="bg-ink rounded"></div>
+            <div class="bg-ink rounded"></div>
+            <div class="bg-transparent"></div>
+            <div class="bg-ink rounded"></div>
+            <div class="bg-ink rounded"></div>
+            <div class="bg-ink rounded"></div>
+            <div class="bg-ink rounded"></div>
+            <div class="bg-transparent"></div>
+            <div class="bg-ink rounded"></div>
+            <div class="bg-transparent"></div>
+            <div class="bg-ink rounded"></div>
+            <div class="bg-transparent"></div>
+            <div class="bg-transparent"></div>
+            <div class="bg-ink rounded"></div>
+            <div class="bg-ink rounded"></div>
+            <div class="bg-transparent"></div>
+            <div class="bg-transparent"></div>
+            <div class="bg-ink rounded"></div>
+            <div class="bg-ink rounded"></div>
+            <div class="bg-ink rounded"></div>
+            <div class="bg-transparent"></div>
+            <div class="bg-ink rounded"></div>
+            <div class="bg-ink rounded"></div>
+            <div class="bg-ink rounded"></div>
+          </div>
+          <span class="absolute px-2 py-0.5 bg-phonepe text-white text-[9px] font-black rounded border border-ink">PhonePe UPI</span>
+        </div>
+
+        <div class="text-sm font-black text-ink">
+          Amount to Pay: <span id="phonepeAmountDisplay" class="text-trustGreen font-black text-lg">₹16,999</span>
+        </div>
+        <div class="text-xs text-ink/70 font-mono font-bold">
+          UPI ID: <span class="text-ink">agency@ybl</span>
+          <button onclick="navigator.clipboard.writeText('agency@ybl'); alert('UPI ID copied!')" class="text-trustGreen underline ml-1 font-sans">Copy</button>
+        </div>
+      </div>
+
+      <div class="space-y-2">
+        <button onclick="handlePaymentApproved()" class="w-full py-3.5 btn-primary-green rounded-xl font-black text-xs uppercase flex items-center justify-center space-x-2">
+          <i data-lucide="check-circle" class="w-4 h-4"></i>
+          <span>SIMULATE PAYMENT APPROVAL</span>
+        </button>
+        <button onclick="closePhonePeModal()" class="w-full py-2 text-xs font-bold text-ink/60 hover:text-ink">
+          Cancel &amp; Edit Details
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOOKING CONFIRMED & EMAIL DISPATCH SCREEN -->
+  <div id="confirmedModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink/70 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
+    <div class="studio-card-green rounded-3xl max-w-lg w-full p-6 sm:p-8 space-y-5">
+      <div class="text-center space-y-1">
+        <div class="w-16 h-16 rounded-full bg-trustGreen text-white mx-auto flex items-center justify-center border-2 border-ink shadow-[3px_3px_0px_#141414]">
+          <i data-lucide="check-circle" class="w-8 h-8"></i>
+        </div>
+        <h3 class="text-2xl font-black font-display text-ink uppercase">Booking Confirmed!</h3>
+        <p class="text-xs text-ink/70 font-medium">Order ID: <span id="confirmedOrderId" class="font-mono font-bold text-trustGreen">#ORD-98421</span></p>
+        <div class="inline-block px-3 py-1 bg-sunYellow border-2 border-ink rounded-lg font-mono text-xs font-black text-ink mt-1">
+          Tracking Password: <span id="confirmedTrackPassword">PASS-4921</span>
+        </div>
+      </div>
+
+      <!-- Confirmation Email Simulation Box -->
+      <div class="bg-paper p-5 rounded-2xl border-2 border-ink space-y-3">
+        <div class="flex items-center space-x-2 text-xs font-black text-trustGreen uppercase">
+          <i data-lucide="mail-check" class="w-4 h-4"></i>
+          <span>Confirmation Email Sent</span>
+        </div>
+        <div class="text-xs text-ink/80 space-y-1.5 leading-relaxed font-medium">
+          <p>An official booking receipt and onboarding brief has been dispatched to <strong id="confirmedEmailDisplay" class="text-ink">client@example.com</strong>.</p>
+          <div class="p-3 bg-white rounded-xl border border-ink text-[11px] space-y-1 font-bold">
+            <div class="flex justify-between"><span class="text-ink/60">Package:</span> <span id="confirmedPlanDisplay" class="text-ink">Pro Business Suite</span></div>
+            <div class="flex justify-between"><span class="text-ink/60">Client:</span> <span id="confirmedBusinessDisplay" class="text-ink">Patel Solar</span></div>
+            <div class="flex justify-between"><span class="text-ink/60">Amount Paid:</span> <span id="confirmedAmountDisplay" class="text-trustGreen">₹8,499.50</span></div>
+            <div class="flex justify-between"><span class="text-ink/60">Payment Gateway:</span> <span class="text-phonepe">PhonePe UPI</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-xl bg-sunYellow/40 border-2 border-ink text-xs text-ink font-bold flex items-start space-x-2.5">
+        <i data-lucide="phone-call" class="w-5 h-5 shrink-0 text-ink mt-0.5"></i>
+        <span><strong>Next Step:</strong> Our developer will contact you in &lt; 2 hours. You can track live project milestones using your Order ID and Password!</span>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3">
+        <a id="trackProjectBtn" href="track.html" class="py-3.5 btn-primary-orange rounded-xl font-black text-xs uppercase text-center block">
+          TRACK MY PROJECT &rarr;
+        </a>
+        <a href="index.html" class="py-3.5 border-2 border-ink bg-white hover:bg-paper rounded-xl font-black text-xs uppercase text-center block shadow-[2px_2px_0px_#141414]">
+          Return to Home
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT -->
+  <script src="checkout.js"></script>
+</body>
+</html>

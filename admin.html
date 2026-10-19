@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — Plans, Coupons &amp; Order Tracker</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+          },
+          colors: {
+            cream: '#FAF8F5',
+            paper: '#F3EFEA',
+            ink: '#141414',
+            brandOrange: '#FF5722',
+            brandOrangeHover: '#F4511E',
+            trustGreen: '#059669',
+            sunYellow: '#FACC15',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-cream text-ink font-sans antialiased min-h-screen">
+
+  <!-- LOGIN SCREEN (If not authenticated) -->
+  <div id="loginScreen" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink/80 backdrop-blur-md">
+    <div class="studio-card rounded-3xl max-w-md w-full p-8 space-y-6 text-center">
+      <div class="w-16 h-16 rounded-2xl bg-brandOrange text-white mx-auto flex items-center justify-center shadow-md border-2 border-ink">
+        <i data-lucide="shield-lock" class="w-8 h-8"></i>
+      </div>
+      <div>
+        <h2 class="text-2xl font-black font-display text-ink uppercase">Studio Admin Control</h2>
+        <p class="text-xs text-ink/70 font-medium mt-1">Manage plans, discount coupons &amp; customer milestone delivery tracking</p>
+      </div>
+
+      <form onsubmit="handleAdminLogin(event)" class="space-y-4 text-left">
+        <div>
+          <label class="block text-xs font-black uppercase text-ink mb-1">Admin Password</label>
+          <input type="password" id="adminPasswordInput" required placeholder="Default: admin123" class="w-full px-4 py-3 rounded-xl border-2 border-ink bg-cream text-ink text-sm font-bold outline-none focus:ring-2 focus:ring-brandOrange">
+          <p class="text-[11px] text-ink/60 mt-1 font-semibold">Default password: <code class="bg-paper px-1 rounded font-bold">admin123</code></p>
+        </div>
+
+        <button type="submit" class="w-full py-3.5 btn-primary-orange rounded-xl font-black text-xs uppercase tracking-wider">
+          UNLOCK ADMIN DASHBOARD &rarr;
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ADMIN MAIN DASHBOARD -->
+  <div id="adminDashboard" class="hidden">
+    
+    <!-- Top Nav -->
+    <header class="bg-paper border-b-2 border-ink sticky top-0 z-40">
+      <div class="container mx-auto px-4 sm:px-6 h-18 py-3.5 flex items-center justify-between max-w-7xl">
+        <div class="flex items-center space-x-3">
+          <div class="w-9 h-9 rounded-xl bg-brandOrange text-white border-2 border-ink flex items-center justify-center font-bold shadow-[2px_2px_0px_#141414]">
+            <i data-lucide="sliders" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h1 class="font-display font-black text-lg text-ink uppercase leading-tight">Studio Admin Control</h1>
+            <span class="text-[10px] text-trustGreen font-black tracking-wider uppercase flex items-center gap-1">
+              <span class="w-2 h-2 rounded-full bg-trustGreen animate-pulse"></span>
+              XAMPP / PHP &amp; LocalStorage Live Sync
+            </span>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-3">
+          <a href="track.html" target="_blank" class="px-4 py-2 rounded-xl border-2 border-ink bg-white hover:bg-cream text-ink text-xs font-black uppercase shadow-[2px_2px_0px_#141414]">
+            Client Tracker
+          </a>
+          <a href="index.html" class="px-4 py-2 rounded-xl border-2 border-ink bg-white hover:bg-cream text-ink text-xs font-black uppercase shadow-[2px_2px_0px_#141414]">
+            View Site
+          </a>
+          <button onclick="handleAdminLogout()" class="px-4 py-2 rounded-xl bg-ink text-white text-xs font-black uppercase shadow-[2px_2px_0px_#141414]">
+            Logout
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 py-8 max-w-7xl space-y-8">
+      
+      <!-- Top 3 Tabs -->
+      <div class="flex border-b-2 border-ink bg-paper p-2 rounded-2xl gap-2 max-w-2xl overflow-x-auto">
+        <button onclick="switchAdminTab('plans')" id="tabBtn-plans" class="flex-1 min-w-[150px] py-3 px-4 rounded-xl font-black text-xs uppercase tracking-wider flex items-center justify-center space-x-2 bg-brandOrange text-white border-2 border-ink shadow-[2px_2px_0px_#141414] transition-all">
+          <i data-lucide="package" class="w-4 h-4"></i>
+          <span>1. Manage Plans</span>
+        </button>
+        <button onclick="switchAdminTab('coupons')" id="tabBtn-coupons" class="flex-1 min-w-[150px] py-3 px-4 rounded-xl font-black text-xs uppercase tracking-wider flex items-center justify-center space-x-2 text-ink hover:bg-cream border-2 border-transparent transition-all">
+          <i data-lucide="tag" class="w-4 h-4"></i>
+          <span>2. Coupons</span>
+        </button>
+        <button onclick="switchAdminTab('orders')" id="tabBtn-orders" class="flex-1 min-w-[170px] py-3 px-4 rounded-xl font-black text-xs uppercase tracking-wider flex items-center justify-center space-x-2 text-ink hover:bg-cream border-2 border-transparent transition-all">
+          <i data-lucide="truck" class="w-4 h-4"></i>
+          <span>3. Orders &amp; Delivery</span>
+        </button>
+      </div>
+
+      <!-- TAB 1: PLANS MANAGER -->
+      <div id="tabContent-plans" class="space-y-6">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
+            <h2 class="text-2xl font-black font-display text-ink uppercase">Edit Website Plans &amp; Prices</h2>
+            <p class="text-xs text-ink/70 font-medium">Add, delete, or edit plans. Changes update the main page and checkout instantly.</p>
+          </div>
+          <div class="flex gap-3">
+            <button onclick="addNewBlankPlan()" class="btn-primary-green px-5 py-3 rounded-full text-xs font-black uppercase tracking-wider flex items-center space-x-1.5">
+              <i data-lucide="plus" class="w-4 h-4"></i>
+              <span>Add New Plan</span>
+            </button>
+            <button onclick="savePlansToBackend()" class="btn-primary-orange px-6 py-3 rounded-full text-xs font-black uppercase tracking-wider flex items-center space-x-2">
+              <i data-lucide="save" class="w-4 h-4"></i>
+              <span>Save All Plans</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="plansListContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Dynamically populated by admin.js -->
+        </div>
+      </div>
+
+      <!-- TAB 2: COUPONS MANAGER -->
+      <div id="tabContent-coupons" class="space-y-6 hidden">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
+            <h2 class="text-2xl font-black font-display text-ink uppercase">Coupon Codes &amp; VIP Discounts</h2>
+            <p class="text-xs text-ink/70 font-medium">All active codes (like VIP50) are listed below. Create new promo codes anytime.</p>
+          </div>
+          <button onclick="openNewCouponModal()" class="btn-primary-green px-6 py-3 rounded-full text-xs font-black uppercase tracking-wider flex items-center space-x-2">
+            <i data-lucide="plus" class="w-4 h-4"></i>
+            <span>Create New Coupon</span>
+          </button>
+        </div>
+
+        <div class="studio-card rounded-3xl p-6 overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead>
+              <tr class="border-b-2 border-ink text-ink font-black uppercase tracking-wider">
+                <th class="py-3 px-4">Coupon Code</th>
+                <th class="py-3 px-4">Type</th>
+                <th class="py-3 px-4">Discount Value</th>
+                <th class="py-3 px-4">Label / Description</th>
+                <th class="py-3 px-4">Status</th>
+                <th class="py-3 px-4 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="couponsTableBody" class="divide-y divide-ink/10 font-bold text-ink">
+              <!-- Dynamically populated by admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TAB 3: CUSTOMER ORDERS & DELIVERY WORK TRACKER -->
+      <div id="tabContent-orders" class="space-y-6 hidden">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
+            <h2 class="text-2xl font-black font-display text-ink uppercase">Customer Orders &amp; Milestone Progress</h2>
+            <p class="text-xs text-ink/70 font-medium">Track incoming PhonePe orders and update delivery milestones so clients can track their website live.</p>
+          </div>
+          <button onclick="saveOrdersToBackend()" class="btn-primary-orange px-6 py-3 rounded-full text-xs font-black uppercase tracking-wider flex items-center space-x-2">
+            <i data-lucide="save" class="w-4 h-4"></i>
+            <span>Save Order Updates</span>
+          </button>
+        </div>
+
+        <div id="ordersContainer" class="space-y-6">
+          <!-- Dynamically populated by admin.js -->
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- CREATE NEW COUPON MODAL -->
+  <div id="couponModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink/70 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
+    <div class="studio-card rounded-3xl max-w-md w-full p-6 sm:p-8 space-y-4 relative">
+      <button onclick="closeNewCouponModal()" class="absolute top-5 right-5 p-2 rounded-xl border border-ink text-ink hover:bg-paper">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div>
+        <span class="text-xs font-black uppercase text-brandOrange tracking-wider">DISCOUNT ENGINE</span>
+        <h3 class="text-2xl font-black font-display text-ink mt-0.5">Add New Coupon</h3>
+      </div>
+
+      <form id="newCouponForm" onsubmit="handleCreateCoupon(event)" class="space-y-3.5">
+        <div>
+          <label class="block text-xs font-black uppercase text-ink mb-1">Coupon Code *</label>
+          <input type="text" id="couponCodeInput" required placeholder="e.g. VIP50 or FESTIVE25" class="w-full uppercase font-mono px-3.5 py-2.5 rounded-xl border-2 border-ink bg-cream text-ink text-sm font-bold outline-none">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-black uppercase text-ink mb-1">Discount Type</label>
+            <select id="couponTypeInput" class="w-full px-3.5 py-2.5 rounded-xl border-2 border-ink bg-cream text-ink text-sm font-bold outline-none">
+              <option value="percent">Percentage (%)</option>
+              <option value="flat">Flat Amount (₹)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-black uppercase text-ink mb-1">Value (e.g. 50 or 2000)</label>
+            <input type="number" id="couponValueInput" required min="1" placeholder="50" class="w-full px-3.5 py-2.5 rounded-xl border-2 border-ink bg-cream text-ink text-sm font-bold outline-none">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-black uppercase text-ink mb-1">Label / Promotion Note</label>
+          <input type="text" id="couponLabelInput" required placeholder="e.g. VIP 50% Off Special Discount" class="w-full px-3.5 py-2.5 rounded-xl border-2 border-ink bg-cream text-ink text-sm font-semibold outline-none">
+        </div>
+
+        <button type="submit" class="w-full py-3.5 btn-primary-orange rounded-xl font-black text-xs uppercase tracking-wider">
+          SAVE &amp; ACTIVATE COUPON &rarr;
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

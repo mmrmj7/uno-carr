@@ -1,0 +1,112 @@
+{
+  "plans": [
+    {
+      "id": "basic",
+      "name": "Basic Starter",
+      "price": 4999,
+      "billing": "/ one-time",
+      "badge": "Starter",
+      "description": "For small local services needing a fast, professional online presence.",
+      "features": [
+        "Clean Responsive Website",
+        "Custom Logo & Brand Palette",
+        "1 Promotional AI Short Video",
+        "Direct WhatsApp Instant Button",
+        "5–7 Days Fast Delivery"
+      ]
+    },
+    {
+      "id": "growth",
+      "name": "Growth Business",
+      "price": 9999,
+      "billing": "/ one-time",
+      "badge": "Growth",
+      "description": "For growing businesses looking to capture leads and showcase their work.",
+      "features": [
+        "Up to 5 Pages Multi-Section Website",
+        "Complete Logo Suite & Social Icons",
+        "2 AI Storytelling Promo Video Reels",
+        "Digital Letterhead Generator Tool",
+        "PhonePe Direct UPI Checkout"
+      ]
+    },
+    {
+      "id": "pro",
+      "name": "Pro Business Suite",
+      "price": 16999,
+      "billing": "/ one-time",
+      "badge": "RECOMMENDED FOR VENDORS",
+      "isFeatured": true,
+      "description": "Full automation suite: Solar vendors, event organizers & service leaders.",
+      "features": [
+        "Full Custom Business Website",
+        "Logo Design & Complete Brand Kit",
+        "Live Quotation Generator Tool",
+        "Work Completion Certificate Maker",
+        "Digital Letterhead System",
+        "4 Cinematic AI Video Ads (Voice + 4K)",
+        "PhonePe + UPI Gateway Integration"
+      ]
+    },
+    {
+      "id": "enterprise",
+      "name": "Enterprise AI Automation",
+      "price": 29999,
+      "billing": "/ one-time",
+      "badge": "Enterprise",
+      "description": "Comprehensive web system with custom client portal & unlimited video pipeline.",
+      "features": [
+        "Unlimited Pages & Custom Client Portal",
+        "Full Brand Identity & Vector Logo Suite",
+        "Quotation, Invoice & Certificate Engine",
+        "8 Cinematic AI Video Advertisements",
+        "WhatsApp Business API Auto-Responder"
+      ]
+    }
+  ],
+  "coupons": [
+    {
+      "code": "VIP50",
+      "type": "percent",
+      "value": 50,
+      "label": "VIP Special 50% OFF",
+      "active": true
+    },
+    {
+      "code": "DISCOUNT10",
+      "type": "percent",
+      "value": 10,
+      "label": "10% Launch Discount",
+      "active": true
+    },
+    {
+      "code": "EARLYBIRD",
+      "type": "flat",
+      "value": 2000,
+      "label": "₹2,000 Flat Savings",
+      "active": true
+    },
+    {
+      "code": "SOLAR25",
+      "type": "percent",
+      "value": 25,
+      "label": "25% Solar & Vendor Partner Discount",
+      "active": true
+    }
+  ],
+  "orders": [
+    {
+      "orderId": "ORD-89421",
+      "trackingPassword": "PASS-4921",
+      "clientName": "Ramesh Patel",
+      "phone": "+91 98765 43210",
+      "business": "Patel Solar Solutions",
+      "email": "ramesh@patelsolar.com",
+      "planName": "Pro Business Suite",
+      "amountPaid": 8499.50,
+      "date": "19 Oct 2026",
+      "stage": 3,
+      "statusNote": "Solar quotation calculator & digital letterhead integrated. Generating 4K AI video ads."
+    }
+  ]
+}

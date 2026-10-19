@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[BRAND NAME] — Websites Engineered to Automate Your Business</title>
+  <meta name="description" content="Not your average website wala. We engineer high-converting websites, automated quotation &amp; work completion tools, and AI storytelling promotional video ads.">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+          },
+          colors: {
+            cream: '#FAF8F5',
+            paper: '#F3EFEA',
+            ink: '#141414',
+            brandOrange: '#FF5722',
+            brandOrangeHover: '#F4511E',
+            trustGreen: '#059669',
+            trustGreenHover: '#047857',
+            sunYellow: '#FACC15',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-cream text-ink font-sans antialiased selection:bg-brandOrange selection:text-white relative overflow-x-hidden min-h-screen">
+
+  <!-- CUSTOM INTERACTIVE CURSOR -->
+  <div class="custom-cursor-dot" id="cursorDot"></div>
+  <div class="custom-cursor-ring" id="cursorRing"></div>
+
+  <!-- TOP TRUST & DIRECT CONTACT RIBBON -->
+  <div class="bg-ink text-white text-[12px] py-2 px-4 border-b-2 border-ink">
+    <div class="container mx-auto max-w-7xl flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center space-x-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-brandOrange animate-ping"></span>
+        <span class="font-medium">Built By Real Coders · Delivered with AI · Reply in <strong class="text-sunYellow font-bold">&lt; 2 Hours</strong></span>
+      </div>
+      <div class="flex items-center space-x-4 text-slate-300 text-xs">
+        <button onclick="openJoinTeamModal()" class="text-sunYellow hover:underline font-bold flex items-center gap-1">
+          <i data-lucide="users" class="w-3.5 h-3.5"></i>
+          <span>Join The Team / Internships</span>
+        </button>
+        <span class="text-slate-600 hidden sm:inline">|</span>
+        <a href="tel:+919876543210" class="hover:text-white hidden sm:flex items-center gap-1 font-mono">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-brandOrange"></i>
+          <span>+91 98765 43210</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN NAVIGATION (Clean mobile layout - numbers 1 2 3 4 removed) -->
+  <header class="sticky top-0 z-40 bg-cream/95 backdrop-blur-md border-b-2 border-ink">
+    <div class="container mx-auto px-3 sm:px-6 h-18 sm:h-20 flex items-center justify-between max-w-7xl">
+      
+      <!-- Logo & Brand Placeholder -->
+      <a href="#" class="flex items-center space-x-2.5 sm:space-x-3 shrink-0 py-1">
+        <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-ink text-brandOrange border-2 border-ink flex items-center justify-center font-black shadow-[3px_3px_0px_#141414] shrink-0">
+          <i data-lucide="code" class="w-5 h-5 text-brandOrange"></i>
+        </div>
+        <div class="flex flex-col whitespace-nowrap min-w-0">
+          <div class="flex items-center gap-1.5">
+            <span class="font-display font-black text-base sm:text-xl tracking-tight text-ink brand-name-text leading-tight truncate">
+              [BRAND NAME]
+            </span>
+            <span class="text-[9px] uppercase font-black px-1.5 py-0.5 rounded bg-sunYellow border border-ink text-ink hidden xs:inline-block">STUDIO</span>
+          </div>
+          <span class="text-[10px] text-ink/70 font-bold tracking-tight">Web &amp; AI Automation</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links (Clean names without numbers) -->
+      <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8 text-xs font-black tracking-wider uppercase">
+        <a href="#work" class="text-ink hover:text-brandOrange transition-colors">
+          WORK
+        </a>
+        <a href="#about" class="text-ink hover:text-brandOrange transition-colors">
+          ABOUT US
+        </a>
+        <a href="#automation" class="text-ink hover:text-brandOrange transition-colors flex items-center gap-1.5">
+          <span>AUTOMATION</span>
+          <span class="px-1.5 py-0.5 text-[9px] bg-brandOrange text-white rounded-full font-bold">TOOLS</span>
+        </a>
+        <a href="#why-us" class="text-ink hover:text-brandOrange transition-colors">
+          WHY US
+        </a>
+        <button onclick="openJoinTeamModal()" class="text-ink hover:text-trustGreen transition-colors flex items-center gap-1">
+          <i data-lucide="handshake" class="w-3.5 h-3.5 text-trustGreen"></i>
+          <span>JOIN THE TEAM</span>
+        </button>
+      </nav>
+
+      <!-- Nav CTA Button -->
+      <div class="flex items-center space-x-2 sm:space-x-3 shrink-0">
+        <a href="checkout.html?plan=Pro+Business+Suite&price=16999" class="btn-primary-orange px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider flex items-center space-x-1.5 whitespace-nowrap">
+          <span>START A PROJECT</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5 hidden sm:inline"></i>
+        </a>
+
+        <!-- Mobile Drawer Button -->
+        <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg border-2 border-ink bg-white text-ink shadow-[2px_2px_0px_#141414]" aria-label="Toggle Menu">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileMenu" class="hidden lg:hidden border-b-2 border-ink bg-paper px-6 py-5 space-y-3">
+      <a href="#work" class="block font-black text-sm uppercase text-ink hover:text-brandOrange py-1.5" onclick="toggleMobileMenu()">WORK / CASE STUDIES</a>
+      <a href="#about" class="block font-black text-sm uppercase text-ink hover:text-brandOrange py-1.5" onclick="toggleMobileMenu()">ABOUT US</a>
+      <a href="#automation" class="block font-black text-sm uppercase text-ink hover:text-brandOrange py-1.5 flex items-center justify-between" onclick="toggleMobileMenu()">
+        <span>AUTOMATION TOOLS</span>
+        <span class="text-[10px] bg-brandOrange text-white px-2 py-0.5 rounded-full font-bold">Featured</span>
+      </a>
+      <a href="#why-us" class="block font-black text-sm uppercase text-ink hover:text-brandOrange py-1.5" onclick="toggleMobileMenu()">WHY US</a>
+      <button onclick="openJoinTeamModal(); toggleMobileMenu();" class="w-full text-left font-black text-sm uppercase text-trustGreen py-1.5 flex items-center gap-2">
+        <i data-lucide="sparkles" class="w-4 h-4"></i>
+        <span>JOIN THE TEAM / INTERNSHIPS</span>
+      </button>
+      <div class="pt-2 border-t border-ink/20">
+        <a href="checkout.html?plan=Pro+Business+Suite&price=16999" class="w-full py-3 btn-primary-orange rounded-xl font-black text-xs uppercase text-center block">
+          MAKE MY WEBSITE NOW &rarr;
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="py-14 sm:py-20 lg:py-24 relative overflow-hidden">
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <div class="lg:col-span-7 space-y-6">
+          
+          <!-- Requested Tagline Badge -->
+          <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full border-2 border-ink bg-sunYellow text-ink text-xs font-black uppercase tracking-wider shadow-[3px_3px_0px_#141414]">
+            <span class="w-2.5 h-2.5 rounded-full bg-brandOrange animate-pulse"></span>
+            <span>NOT YOUR AVERAGE WEBSITE WALA</span>
+          </div>
+
+          <!-- Animated Dynamic Headline -->
+          <h1 class="font-display text-4xl sm:text-6xl xl:text-7xl font-black uppercase tracking-tight text-ink leading-[1.04]">
+            Websites engineered to <br>
+            <span id="animatedHeroText" class="text-brandOrange inline-block underline decoration-sunYellow decoration-wavy transition-all duration-300">
+              automate your business.
+            </span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-ink/80 font-medium leading-relaxed max-w-xl">
+            We don't build digital brochures that sit idle. We build <strong class="text-ink">custom quotation generators, work completion reports, and AI storytelling promo video ads</strong> that do the hard selling for you.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
+            <a href="checkout.html?plan=Pro+Business+Suite&price=16999" class="btn-primary-orange px-8 py-4 rounded-full text-center text-sm font-black uppercase tracking-wider flex items-center justify-center space-x-2">
+              <span>MAKE MY WEBSITE NOW</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <a href="#automation" class="px-7 py-4 rounded-full border-2 border-ink bg-white hover:bg-paper text-ink font-black text-sm uppercase tracking-wider text-center flex items-center justify-center space-x-2 shadow-[4px_4px_0px_#141414] transition-all">
+              <i data-lucide="layers" class="w-4 h-4 text-brandOrange"></i>
+              <span>SEE AUTOMATION TOOLS</span>
+            </a>
+          </div>
+
+          <!-- Requested Positioning Badges: Built by Real Coders + Deliver with AI -->
+          <div class="pt-6 border-t-2 border-ink/10 grid grid-cols-2 gap-4 max-w-md">
+            <div class="p-3 rounded-xl border-2 border-ink bg-paper">
+              <div class="text-sm font-black font-display text-ink uppercase flex items-center gap-1.5">
+                <i data-lucide="code-2" class="w-4 h-4 text-brandOrange"></i>
+                <span>Built By Real Coders</span>
+              </div>
+              <div class="text-xs text-ink/70 font-semibold mt-1">Battle-tested custom architecture</div>
+            </div>
+            <div class="p-3 rounded-xl border-2 border-ink bg-sunYellow/30">
+              <div class="text-sm font-black font-display text-brandOrange uppercase flex items-center gap-1.5">
+                <i data-lucide="zap" class="w-4 h-4 text-brandOrange"></i>
+                <span>Delivered with AI</span>
+              </div>
+              <div class="text-xs text-ink/70 font-semibold mt-1">Superhuman speed &amp; efficiency</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Quick Business Quote Box -->
+        <div class="lg:col-span-5">
+          <div class="studio-card p-6 sm:p-8 rounded-3xl relative">
+            <div class="flex items-center justify-between pb-3 border-b-2 border-ink mb-4">
+              <div>
+                <span class="text-[11px] font-black uppercase text-brandOrange tracking-wider">Fast 3-Field Request</span>
+                <h3 class="text-lg font-black font-display text-ink">Get A Free Call &amp; Estimate</h3>
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-sunYellow border-2 border-ink text-ink text-[10px] font-black uppercase">
+                30 SECONDS
+              </span>
+            </div>
+
+            <form id="heroQuickForm" onsubmit="handleQuickQuote(event)" class="space-y-3.5">
+              <div>
+                <label class="block text-xs font-black uppercase text-ink mb-1">Your Full Name</label>
+                <input type="text" id="quickName" required placeholder="e.g. Rahul Sharma" class="w-full px-3.5 py-3 rounded-xl border-2 border-ink bg-cream text-ink text-sm font-semibold outline-none focus:ring-2 focus:ring-brandOrange">
+              </div>
+
+              <div>
+                <label class="block text-xs font-black uppercase text-ink mb-1">WhatsApp / Phone Number</label>
+                <input type="tel" id="quickPhone" required placeholder="+91 98765 00000" class="w-full px-3.5 py-3 rounded-xl border-2 border-ink bg-cream text-ink text-sm font-semibold outline-none focus:ring-2 focus:ring-brandOrange">
+              </div>
+
+              <div>
+                <label class="block text-xs font-black uppercase text-ink mb-1">Your Business Category</label>
+                <select id="quickType" class="w-full px-3.5 py-3 rounded-xl border-2 border-ink bg-cream text-ink text-sm font-semibold outline-none focus:ring-2 focus:ring-brandOrange">
+                  <option value="Solar Energy & Rooftop Business">Solar Energy / Rooftop Business</option>
+                  <option value="Event Organizer & Banquet">Event Organizer / Wedding Venue</option>
+                  <option value="Retail / E-commerce Store">Retail / D2C Brand</option>
+                  <option value="B2B Manufacturing & Services">Manufacturing &amp; Engineering</option>
+                  <option value="Other Service Agency">Other Growing Business</option>
+                </select>
+              </div>
+
+              <button type="submit" class="w-full py-4 btn-primary-orange rounded-xl font-black text-xs uppercase tracking-wider flex items-center justify-center space-x-2">
+                <span>REQUEST FREE CONSULTATION &rarr;</span>
+              </button>
+
+              <div class="text-center text-[11px] text-ink/70 font-semibold flex items-center justify-center gap-1.5 pt-1">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-trustGreen"></i>
+                <span>Direct WhatsApp / Call reply in &lt; 2 hours.</span>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DUAL CROSS-ANIMATED MARQUEE RIBBONS -->
+  <div class="border-y-2 border-ink bg-paper py-3 space-y-2 overflow-hidden shadow-sm">
+    <!-- Ribbon 1: Moving Left (←) -->
+    <div class="marquee-ribbon">
+      <div class="marquee-track-left items-center gap-6 font-display font-black text-sm sm:text-base uppercase text-ink">
+        <span class="flex items-center gap-2"><i data-lucide="sun" class="w-4 h-4 text-brandOrange"></i> SUNPOWER SOLAR SOLUTIONS</span>
+        <span class="text-brandOrange">★</span>
+        <span class="flex items-center gap-2"><i data-lucide="gem" class="w-4 h-4 text-sunYellow"></i> PASHUPATI JEWELLERS</span>
+        <span class="text-brandOrange">★</span>
+        <span class="flex items-center gap-2"><i data-lucide="crown" class="w-4 h-4 text-brandOrange"></i> GRAND IMPERIAL BANQUETS</span>
+        <span class="text-brandOrange">★</span>
+        <span class="flex items-center gap-2"><i data-lucide="wrench" class="w-4 h-4 text-ink"></i> APEX INDUSTRIAL FABRICATION</span>
+        <span class="text-brandOrange">★</span>
+        <span class="flex items-center gap-2"><i data-lucide="shopping-bag" class="w-4 h-4 text-brandOrange"></i> SWIFT RETAIL D2C</span>
+        <span class="text-brandOrange">★</span>
+        <span class="flex items-center gap-2"><i data-lucide="sun" class="w-4 h-4 text-brandOrange"></i> SUNPOWER SOLAR SOLUTIONS</span>
+        <span class="text-brandOrange">★</span>
+        <span class="flex items-center gap-2"><i data-lucide="gem" class="w-4 h-4 text-sunYellow"></i> PASHUPATI JEWELLERS</span>
+        <span class="text-brandOrange">★</span>
+        <span class="flex items-center gap-2"><i data-lucide="crown" class="w-4 h-4 text-brandOrange"></i> GRAND IMPERIAL BANQUETS</span>
+        <span class="text-brandOrange">★</span>
+        <span class="flex items-center gap-2"><i data-lucide="wrench" class="w-4 h-4 text-ink"></i> APEX INDUSTRIAL FABRICATION</span>
+        <span class="text-brandOrange">★</span>
+      </div>
+    </div>
+
+    <!-- Ribbon 2: Moving Right (→) -->
+    <div class="marquee-ribbon bg-sunYellow py-1.5 border-y-2 border-ink">
+      <div class="marquee-track-right items-center gap-6 font-display font-black text-xs sm:text-sm uppercase text-ink">
+        <span>⚡ NOT YOUR AVERAGE WEBSITE WALA</span>
+        <span>•</span>
+        <span>WE BUILD LOGOS &amp; BRAND IDENTITY</span>
+        <span>•</span>
+        <span>NO BORING MS WORD OR EXCEL</span>
+        <span>•</span>
+        <span>AUTOMATED WORK COMPLETION CERTIFICATES</span>
+        <span>•</span>
+        <span>AI STORYTELLING VIDEO ADS</span>
+        <span>•</span>
+        <span>DIRECT PHONEPE PAYMENT</span>
+        <span>•</span>
+        <span>⚡ NOT YOUR AVERAGE WEBSITE WALA</span>
+        <span>•</span>
+        <span>WE BUILD LOGOS &amp; BRAND IDENTITY</span>
+        <span>•</span>
+        <span>NO BORING MS WORD OR EXCEL</span>
+        <span>•</span>
+        <span>AUTOMATED WORK COMPLETION CERTIFICATES</span>
+        <span>•</span>
+        <span>AI STORYTELLING VIDEO ADS</span>
+        <span>•</span>
+        <span>DIRECT PHONEPE PAYMENT</span>
+        <span>•</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: WORK (Websites Built For Real Brands - Exactly 4 Websites Showcased) -->
+  <section id="work" class="py-20 lg:py-28">
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+        <div>
+          <span class="text-xs font-black uppercase text-brandOrange tracking-wider">PORTFOLIO &amp; DELIVERABLES</span>
+          <h2 class="font-display text-3xl sm:text-5xl font-black uppercase text-ink tracking-tight mt-1">
+            Websites Built For Real Brands
+          </h2>
+          <p class="text-ink/70 text-base max-w-lg mt-2 font-medium">
+            Inspect the custom features, calculation tools, and video ad integrations we engineered for real businesses.
+          </p>
+        </div>
+        <div>
+          <a href="checkout.html?plan=Pro+Business+Suite&price=16999" class="btn-primary-orange px-6 py-3 rounded-full text-xs font-black uppercase tracking-wider inline-flex items-center gap-1.5">
+            <span>GET A SIMILAR WEBSITE &rarr;</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 4 Real Brand Websites Grid: Exactly 4 in 1 Single Horizontal Row (1 2 3 4) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-7xl mx-auto">
+        
+        <!-- 1. SunPower Solar Rooftop Solutions -->
+        <div class="studio-card rounded-3xl overflow-hidden flex flex-col justify-between group cursor-pointer" onclick="openCaseStudyModal('SunPower Rooftop Solutions', 'Solar Energy Vendor Platform', 'Replaced manual Excel estimation with an instant online quotation tool that auto-calculates solar kW capacity, government subsidies, and blended GST, producing official PDFs on WhatsApp in 30 seconds.', '3.8x Faster Quotes', 'Zero Excel Errors')">
+          <div class="p-4 sm:p-5">
+            <div class="rounded-2xl border-2 border-ink bg-cream overflow-hidden shadow-[2px_2px_0px_#141414]">
+              <div class="bg-paper px-3 py-2 border-b-2 border-ink flex items-center justify-between text-xs font-mono">
+                <div class="flex space-x-1">
+                  <div class="w-2 h-2 rounded-full bg-red-400 border border-ink"></div>
+                  <div class="w-2 h-2 rounded-full bg-sunYellow border border-ink"></div>
+                  <div class="w-2 h-2 rounded-full bg-trustGreen border border-ink"></div>
+                </div>
+                <span class="text-[10px] font-bold text-ink truncate max-w-[110px]">sunpower-solar.live</span>
+                <i data-lucide="sun" class="w-3.5 h-3.5 text-brandOrange"></i>
+              </div>
+              <div class="p-4 bg-gradient-to-br from-amber-500/15 via-brandOrange/10 to-paper h-36 flex flex-col justify-between">
+                <span class="px-2.5 py-0.5 bg-brandOrange text-white text-[9px] font-black uppercase rounded-full w-fit border border-ink">
+                  Solar Energy
+                </span>
+                <div class="bg-white p-2.5 rounded-lg border-2 border-ink">
+                  <h4 class="font-bold text-ink text-xs truncate">SunPower Solar Solutions</h4>
+                  <p class="text-[10px] text-ink/70 truncate">Instant Quotation Generator + Work Completion</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 space-y-1">
+              <h3 class="text-base font-bold font-display text-ink flex items-center justify-between">
+                <span>1. SunPower Solar</span>
+                <span class="text-[10px] text-brandOrange font-mono font-bold">#01</span>
+              </h3>
+              <p class="text-xs text-ink/70 font-medium leading-relaxed line-clamp-3">
+                Replaced manual Excel quotes with a 1-click web quotation tool that generates branded PDFs on WhatsApp.
+              </p>
+            </div>
+          </div>
+
+          <div class="px-4 sm:px-5 py-3 bg-paper border-t-2 border-ink flex items-center justify-between text-xs">
+            <span class="text-brandOrange font-bold text-[11px] flex items-center gap-1"><i data-lucide="check" class="w-3.5 h-3.5"></i> 6 Days</span>
+            <span class="font-black text-ink uppercase text-[11px] group-hover:underline">Inspect &rarr;</span>
+          </div>
+        </div>
+
+        <!-- 2. Grand Imperial Banquets & Occasions -->
+        <div class="studio-card rounded-3xl overflow-hidden flex flex-col justify-between group cursor-pointer" onclick="openCaseStudyModal('Grand Imperial Occasions', 'Luxury Banquet & Wedding Organizers', 'Engineered interactive wedding package builders with instant guest pricing, date reservation, and automated digital letterhead dispatch.', '4.1x Higher Bookings', 'WhatsApp Automated')">
+          <div class="p-4 sm:p-5">
+            <div class="rounded-2xl border-2 border-ink bg-cream overflow-hidden shadow-[2px_2px_0px_#141414]">
+              <div class="bg-paper px-3 py-2 border-b-2 border-ink flex items-center justify-between text-xs font-mono">
+                <div class="flex space-x-1">
+                  <div class="w-2 h-2 rounded-full bg-red-400 border border-ink"></div>
+                  <div class="w-2 h-2 rounded-full bg-sunYellow border border-ink"></div>
+                  <div class="w-2 h-2 rounded-full bg-trustGreen border border-ink"></div>
+                </div>
+                <span class="text-[10px] font-bold text-ink truncate max-w-[110px]">grand-occasions.live</span>
+                <i data-lucide="crown" class="w-3.5 h-3.5 text-sunYellow"></i>
+              </div>
+              <div class="p-4 bg-gradient-to-br from-purple-500/15 via-sunYellow/15 to-paper h-36 flex flex-col justify-between">
+                <span class="px-2.5 py-0.5 bg-sunYellow text-ink text-[9px] font-black uppercase rounded-full w-fit border border-ink">
+                  Event Banquets
+                </span>
+                <div class="bg-white p-2.5 rounded-lg border-2 border-ink">
+                  <h4 class="font-bold text-ink text-xs truncate">Grand Imperial Banquets</h4>
+                  <p class="text-[10px] text-ink/70 truncate">AI Story Promo Video + Custom Package Calculator</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 space-y-1">
+              <h3 class="text-base font-bold font-display text-ink flex items-center justify-between">
+                <span>2. Grand Imperial</span>
+                <span class="text-[10px] text-brandOrange font-mono font-bold">#02</span>
+              </h3>
+              <p class="text-xs text-ink/70 font-medium leading-relaxed line-clamp-3">
+                Online banquet package builders with instant guest budget calculator and direct WhatsApp booking.
+              </p>
+            </div>
+          </div>
+
+          <div class="px-4 sm:px-5 py-3 bg-paper border-t-2 border-ink flex items-center justify-between text-xs">
+            <span class="text-brandOrange font-bold text-[11px] flex items-center gap-1"><i data-lucide="check" class="w-3.5 h-3.5"></i> 5 Days</span>
+            <span class="font-black text-ink uppercase text-[11px] group-hover:underline">Inspect &rarr;</span>
+          </div>
+        </div>
+
+        <!-- 3. Pashupati Jewellers -->
+        <div class="studio-card rounded-3xl overflow-hidden flex flex-col justify-between group cursor-pointer" onclick="openCaseStudyModal('Pashupati Jewellers', 'Luxury Jewelry & D2C Catalog', 'Engineered mobile-first high ticket catalog with real-time gold/silver rate sync, WhatsApp concierge inquiry, and luxury video ads.', '5.2x Inquiry Growth', 'Direct WhatsApp Orders')">
+          <div class="p-4 sm:p-5">
+            <div class="rounded-2xl border-2 border-ink bg-cream overflow-hidden shadow-[2px_2px_0px_#141414]">
+              <div class="bg-paper px-3 py-2 border-b-2 border-ink flex items-center justify-between text-xs font-mono">
+                <div class="flex space-x-1">
+                  <div class="w-2 h-2 rounded-full bg-red-400 border border-ink"></div>
+                  <div class="w-2 h-2 rounded-full bg-sunYellow border border-ink"></div>
+                  <div class="w-2 h-2 rounded-full bg-trustGreen border border-ink"></div>
+                </div>
+                <span class="text-[10px] font-bold text-ink truncate max-w-[110px]">pashupati-jewels.live</span>
+                <i data-lucide="gem" class="w-3.5 h-3.5 text-brandOrange"></i>
+              </div>
+              <div class="p-4 bg-gradient-to-br from-amber-500/10 via-sunYellow/20 to-paper h-36 flex flex-col justify-between">
+                <span class="px-2.5 py-0.5 bg-ink text-sunYellow text-[9px] font-black uppercase rounded-full w-fit border border-ink">
+                  Luxury D2C
+                </span>
+                <div class="bg-white p-2.5 rounded-lg border-2 border-ink">
+                  <h4 class="font-bold text-ink text-xs truncate">Pashupati Jewellers</h4>
+                  <p class="text-[10px] text-ink/70 truncate">Live Rate Sync + Luxury Video Ad Reels</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 space-y-1">
+              <h3 class="text-base font-bold font-display text-ink flex items-center justify-between">
+                <span>3. Pashupati Jewels</span>
+                <span class="text-[10px] text-brandOrange font-mono font-bold">#03</span>
+              </h3>
+              <p class="text-xs text-ink/70 font-medium leading-relaxed line-clamp-3">
+                High-end jewelry catalog for ultra-fast mobile browsing, connecting buyers to sales reps on WhatsApp.
+              </p>
+            </div>
+          </div>
+
+          <div class="px-4 sm:px-5 py-3 bg-paper border-t-2 border-ink flex items-center justify-between text-xs">
+            <span class="text-brandOrange font-bold text-[11px] flex items-center gap-1"><i data-lucide="check" class="w-3.5 h-3.5"></i> 6 Days</span>
+            <span class="font-black text-ink uppercase text-[11px] group-hover:underline">Inspect &rarr;</span>
+          </div>
+        </div>
+
+        <!-- 4. Apex Industrial & Engineering -->
+        <div class="studio-card rounded-3xl overflow-hidden flex flex-col justify-between group cursor-pointer" onclick="openCaseStudyModal('Apex Industrial Fabrication', 'B2B Engineering & Heavy Fabricators', 'Developed custom RFP quote calculation engine, milestone work completion sign-offs, and downloadable technical specification sheets.', '100% Paperless RFP', 'Automated Milestone Signoff')">
+          <div class="p-4 sm:p-5">
+            <div class="rounded-2xl border-2 border-ink bg-cream overflow-hidden shadow-[2px_2px_0px_#141414]">
+              <div class="bg-paper px-3 py-2 border-b-2 border-ink flex items-center justify-between text-xs font-mono">
+                <div class="flex space-x-1">
+                  <div class="w-2 h-2 rounded-full bg-red-400 border border-ink"></div>
+                  <div class="w-2 h-2 rounded-full bg-sunYellow border border-ink"></div>
+                  <div class="w-2 h-2 rounded-full bg-trustGreen border border-ink"></div>
+                </div>
+                <span class="text-[10px] font-bold text-ink truncate max-w-[110px]">apex-industrial.live</span>
+                <i data-lucide="wrench" class="w-3.5 h-3.5 text-brandOrange"></i>
+              </div>
+              <div class="p-4 bg-gradient-to-br from-slate-400/20 via-paper to-cream h-36 flex flex-col justify-between">
+                <span class="px-2.5 py-0.5 bg-ink text-white text-[9px] font-black uppercase rounded-full w-fit border border-ink">
+                  B2B Engineering
+                </span>
+                <div class="bg-white p-2.5 rounded-lg border-2 border-ink">
+                  <h4 class="font-bold text-ink text-xs truncate">Apex Industrial Fabrication</h4>
+                  <p class="text-[10px] text-ink/70 truncate">Technical RFP Engine + Milestone Sign-offs</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 space-y-1">
+              <h3 class="text-base font-bold font-display text-ink flex items-center justify-between">
+                <span>4. Apex Industrial</span>
+                <span class="text-[10px] text-brandOrange font-mono font-bold">#04</span>
+              </h3>
+              <p class="text-xs text-ink/70 font-medium leading-relaxed line-clamp-3">
+                Streamlined heavy industrial RFPs and project milestone certificates, replacing physical paperwork.
+              </p>
+            </div>
+          </div>
+
+          <div class="px-4 sm:px-5 py-3 bg-paper border-t-2 border-ink flex items-center justify-between text-xs">
+            <span class="text-brandOrange font-bold text-[11px] flex items-center gap-1"><i data-lucide="check" class="w-4 h-4"></i> 7 Days</span>
+            <span class="font-black text-ink uppercase text-[11px] group-hover:underline">Inspect &rarr;</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 2: ABOUT OUR STUDIO (Requested: Keep Green theme here + Video on the right!) -->
+  <section id="about" class="py-20 bg-paper border-y-2 border-ink">
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <div class="lg:col-span-6 space-y-5">
+          <span class="text-xs font-black uppercase text-trustGreen tracking-wider">ABOUT OUR STUDIO</span>
+          <h2 class="font-display text-3xl sm:text-5xl font-black uppercase text-ink tracking-tight leading-tight">
+            We cook websites that actually work.
+          </h2>
+          <p class="text-base text-ink/80 font-medium leading-relaxed">
+            We are senior coders and video creators who leverage high-level AI automation pipelines to give Indian businesses what traditional agencies charge ₹1.5 Lakhs for.
+          </p>
+          <div class="space-y-3 pt-2 text-sm font-bold text-ink">
+            <div class="flex items-center space-x-2.5">
+              <span class="w-6 h-6 rounded-full bg-trustGreen text-white flex items-center justify-center text-xs">✓</span>
+              <span>Built by real coders — no bloated page builders that break</span>
+            </div>
+            <div class="flex items-center space-x-2.5">
+              <span class="w-6 h-6 rounded-full bg-trustGreen text-white flex items-center justify-center text-xs">✓</span>
+              <span>Delivered with AI for superhuman delivery speed (5–7 Days)</span>
+            </div>
+            <div class="flex items-center space-x-2.5">
+              <span class="w-6 h-6 rounded-full bg-trustGreen text-white flex items-center justify-center text-xs">✓</span>
+              <span>Custom quotation &amp; work completion tools built for your margin</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Requested: Studio Video Player / Showcase Card on 2nd Point -->
+        <div class="lg:col-span-6">
+          <div class="studio-card-green rounded-3xl overflow-hidden p-3 bg-white">
+            <div class="relative aspect-video rounded-2xl bg-ink overflow-hidden flex flex-col items-center justify-center cursor-pointer group shadow-inner" onclick="openStudioVideoModal()">
+              <!-- Simulated Video Backdrop -->
+              <div class="absolute inset-0 bg-gradient-to-tr from-black via-ink to-trustGreen/30 opacity-70"></div>
+              
+              <div class="relative z-10 w-16 h-16 rounded-full bg-trustGreen text-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform border-2 border-white">
+                <i data-lucide="play" class="w-7 h-7 ml-1 fill-current"></i>
+              </div>
+
+              <div class="absolute bottom-4 left-4 right-4 z-10 flex items-center justify-between text-xs text-white">
+                <div class="flex items-center space-x-2 bg-black/60 px-3 py-1 rounded-full backdrop-blur">
+                  <span class="w-2 h-2 rounded-full bg-trustGreen animate-ping"></span>
+                  <span class="font-bold">Studio Showcase Reel</span>
+                </div>
+                <span class="bg-black/60 px-2.5 py-1 rounded font-mono text-[10px]">1:15 HD</span>
+              </div>
+            </div>
+
+            <div class="p-4 space-y-1">
+              <h4 class="font-display font-black text-base text-ink">Behind The Code: How We Build &amp; Automate</h4>
+              <p class="text-xs text-ink/70 font-medium">Watch how we replace manual Excel workflows with high-converting web tools.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: AUTOMATION TOOLS (Catalogue Style Showcase like nhcagro.com - Compact & High-Impact) -->
+  <section id="automation" class="py-16 lg:py-24">
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl">
+      
+      <div class="max-w-3xl mx-auto text-center space-y-3 mb-12">
+        <span class="text-xs font-black uppercase text-brandOrange tracking-wider">BUSINESS WORKFLOW REVOLUTION</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-black uppercase text-ink tracking-tight">
+          Tools That Replace MS Word &amp; Excel
+        </h2>
+        <p class="text-ink/80 text-sm sm:text-base font-medium max-w-xl mx-auto">
+          Explore our proprietary workflow automation catalogues engineered directly into your domain.
+        </p>
+      </div>
+
+      <!-- 3-Column Catalogue Showcase Grid (nhcagro.com Catalogue Card Style) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        
+        <!-- Catalogue Card 1: Quotation Generator -->
+        <div class="studio-card rounded-3xl overflow-hidden flex flex-col justify-between group">
+          <div>
+            <!-- Catalogue Cover Image Mockup -->
+            <div class="p-4 bg-paper border-b-2 border-ink">
+              <div class="rounded-2xl border-2 border-ink bg-white overflow-hidden shadow-[2px_2px_0px_#141414] relative">
+                <div class="bg-ink text-white px-3 py-1.5 flex items-center justify-between text-[11px] font-mono">
+                  <span class="text-brandOrange font-bold">CATALOGUE #01</span>
+                  <span class="text-sunYellow font-bold">PDF EXPORT</span>
+                </div>
+                <div class="p-4 bg-gradient-to-br from-amber-500/10 via-cream to-white space-y-2.5 h-44 flex flex-col justify-between">
+                  <div>
+                    <span class="px-2 py-0.5 rounded bg-brandOrange text-white text-[9px] font-black uppercase">Quotation Engine</span>
+                    <h4 class="font-display font-black text-sm text-ink mt-1">Solar &amp; Vendor Quotation Tool</h4>
+                    <p class="text-[10px] text-ink/70">Auto-calc: kW, Subsidies &amp; Net GST</p>
+                  </div>
+                  <div class="p-2.5 rounded-xl border border-ink bg-white flex items-center justify-between">
+                    <div>
+                      <div class="text-[9px] font-mono text-ink/60 uppercase">Calculated Estimate</div>
+                      <div class="text-base font-black font-display text-brandOrange">₹6,42,800</div>
+                    </div>
+                    <span class="text-[9px] bg-trustGreen text-white px-2 py-0.5 rounded-full font-bold">WhatsApp Ready</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Catalogue Details -->
+            <div class="p-5 space-y-2">
+              <h3 class="font-display font-black text-lg text-ink">Branded Quotation Generator</h3>
+              <p class="text-xs text-ink/70 font-medium leading-relaxed">
+                Eliminate messy Excel sheets. Clients select packages, and the engine generates branded PDF quotes sent to WhatsApp in 30 seconds.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-5 pt-0">
+            <button onclick="openCaseStudyModal('Branded Online Quotation Generator', 'Workflow Tool #1', 'Replaces manual Excel estimation. Auto-computes package capacity, tiered pricing, blended GST, and government subsidies, generating verified branded PDFs sent straight to the client WhatsApp in 30 seconds.', 'Zero Calculation Errors', '30-Sec Turnaround')" class="w-full py-3 rounded-xl border-2 border-ink bg-white hover:bg-paper font-black text-xs uppercase tracking-wider flex items-center justify-center space-x-1.5 transition-colors">
+              <span>EXPLORE TOOL CATALOGUE &rarr;</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Catalogue Card 2: Work Completion Certificate Maker -->
+        <div class="studio-card rounded-3xl overflow-hidden flex flex-col justify-between group">
+          <div>
+            <!-- Catalogue Cover Image Mockup -->
+            <div class="p-4 bg-paper border-b-2 border-ink">
+              <div class="rounded-2xl border-2 border-ink bg-white overflow-hidden shadow-[2px_2px_0px_#141414] relative">
+                <div class="bg-ink text-white px-3 py-1.5 flex items-center justify-between text-[11px] font-mono">
+                  <span class="text-trustGreen font-bold">CATALOGUE #02</span>
+                  <span class="text-sunYellow font-bold">DIGITAL SEAL</span>
+                </div>
+                <div class="p-4 bg-gradient-to-br from-emerald-500/10 via-cream to-white space-y-2.5 h-44 flex flex-col justify-between">
+                  <div>
+                    <span class="px-2 py-0.5 rounded bg-trustGreen text-white text-[9px] font-black uppercase">Handover System</span>
+                    <h4 class="font-display font-black text-sm text-ink mt-1">Work Completion Certificate</h4>
+                    <p class="text-[10px] text-ink/70">GPS Timestamp + Mobile OTP Sign-off</p>
+                  </div>
+                  <div class="p-2.5 rounded-xl border border-dashed border-ink bg-white flex items-center justify-between">
+                    <div>
+                      <div class="text-[9px] font-mono text-ink/60 uppercase">Certificate #CERT-98214</div>
+                      <div class="text-xs font-black font-display text-trustGreen">100% Passed IS Standards</div>
+                    </div>
+                    <div class="w-7 h-7 rounded-full bg-sunYellow border border-ink flex items-center justify-center text-[8px] font-black">SEAL</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Catalogue Details -->
+            <div class="p-5 space-y-2">
+              <h3 class="font-display font-black text-lg text-ink">Work Completion Certificates</h3>
+              <p class="text-xs text-ink/70 font-medium leading-relaxed">
+                100% paperless on-site handovers. Field technicians generate verified, timestamped certificates directly from their smartphones.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-5 pt-0">
+            <button onclick="openCaseStudyModal('Branded Work Completion Certificate Tool', 'Workflow Tool #2', 'No more lost paper sign-offs or manual signatures. Field engineers inspect the site, enter test values, and generate an official tamper-proof PDF certificate with GPS location stamp and OTP signature.', '100% Paperless', 'Instant Sign-off')" class="w-full py-3 rounded-xl border-2 border-ink bg-white hover:bg-paper font-black text-xs uppercase tracking-wider flex items-center justify-center space-x-1.5 transition-colors">
+              <span>EXPLORE TOOL CATALOGUE &rarr;</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Catalogue Card 3: Digital Letterhead System -->
+        <div class="studio-card rounded-3xl overflow-hidden flex flex-col justify-between group">
+          <div>
+            <!-- Catalogue Cover Image Mockup -->
+            <div class="p-4 bg-paper border-b-2 border-ink">
+              <div class="rounded-2xl border-2 border-ink bg-white overflow-hidden shadow-[2px_2px_0px_#141414] relative">
+                <div class="bg-ink text-white px-3 py-1.5 flex items-center justify-between text-[11px] font-mono">
+                  <span class="text-sunYellow font-bold">CATALOGUE #03</span>
+                  <span class="text-brandOrange font-bold">PRINT READY</span>
+                </div>
+                <div class="p-4 bg-gradient-to-br from-orange-500/10 via-cream to-white space-y-2.5 h-44 flex flex-col justify-between">
+                  <div>
+                    <span class="px-2 py-0.5 rounded bg-sunYellow border border-ink text-ink text-[9px] font-black uppercase">Stationery Suite</span>
+                    <h4 class="font-display font-black text-sm text-ink mt-1">Branded Digital Letterhead</h4>
+                    <p class="text-[10px] text-ink/70">CIN / GSTIN Header + Auto Ref. Number</p>
+                  </div>
+                  <div class="p-2.5 rounded-xl border border-ink bg-white flex items-center justify-between">
+                    <div>
+                      <div class="text-[9px] font-mono text-ink/60 uppercase">Live Format Preview</div>
+                      <div class="text-xs font-bold text-ink">Official Corporate Correspondence</div>
+                    </div>
+                    <span class="text-[9px] bg-paper text-ink px-2 py-0.5 rounded border border-ink font-mono font-bold">A4 PDF</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Catalogue Details -->
+            <div class="p-5 space-y-2">
+              <h3 class="font-display font-black text-lg text-ink">Branded Digital Letterhead</h3>
+              <p class="text-xs text-ink/70 font-medium leading-relaxed">
+                Type directly in your browser. Generates pristine, print-ready corporate correspondence with your company stationery and GSTIN.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-5 pt-0">
+            <button onclick="openCaseStudyModal('Branded Digital Letterhead System', 'Workflow Tool #3', 'Eliminates messy MS Word formatting errors across your team. Staff write letters directly in the web browser, generating perfectly aligned corporate letterhead documents with auto-incrementing reference numbers.', 'Zero Word Formatting Errors', 'Uniform Corporate Brand')" class="w-full py-3 rounded-xl border-2 border-ink bg-white hover:bg-paper font-black text-xs uppercase tracking-wider flex items-center justify-center space-x-1.5 transition-colors">
+              <span>EXPLORE TOOL CATALOGUE &rarr;</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 4: WHY US (The Anti-AI-Gibberish Guarantee) -->
+  <section id="why-us" class="py-20 bg-paper border-y-2 border-ink">
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl">
+      
+      <div class="max-w-3xl mx-auto text-center space-y-3 mb-16">
+        <span class="text-xs font-black uppercase text-brandOrange tracking-wider">THE DIFFERENCE</span>
+        <h2 class="font-display text-3xl sm:text-5xl font-black uppercase text-ink tracking-tight">
+          Why We Are Not Your Average Website Wala
+        </h2>
+        <p class="text-ink/80 text-base font-medium">
+          When people ask "is this made with AI?", they mean "is this a generic, lazy template?". Here's our answer:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        
+        <div class="studio-card p-6 rounded-2xl space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-sunYellow border-2 border-ink flex items-center justify-center font-black text-xl">
+            🧠
+          </div>
+          <h4 class="font-display font-black text-lg text-ink">Built By Real Coders</h4>
+          <p class="text-xs text-ink/80 font-medium leading-relaxed">
+            Every button, formula, and database pipeline is custom authored. No fragile page-builders that break the moment you update a plugin.
+          </p>
+        </div>
+
+        <div class="studio-card p-6 rounded-2xl space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-brandOrange text-white border-2 border-ink flex items-center justify-center font-black text-xl">
+            ⚡
+          </div>
+          <h4 class="font-display font-black text-lg text-white">Delivered with AI</h4>
+          <p class="text-xs text-ink/80 font-medium leading-relaxed">
+            We use cutting-edge AI systems for rapid generation of video reels, assets, and speed optimization. What takes typical agencies 3 months, we ship in 5–7 days.
+          </p>
+        </div>
+
+        <div class="studio-card p-6 rounded-2xl space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-sunYellow border-2 border-ink flex items-center justify-center font-black text-xl">
+            🎨
+          </div>
+          <h4 class="font-display font-black text-lg text-ink">We Build Logos &amp; Identity</h4>
+          <p class="text-xs text-ink/80 font-medium leading-relaxed">
+            No generic clip-art. We craft memorable vector logos, brand typography, and social media kits so your business looks authoritative and trusted.
+          </p>
+        </div>
+
+        <div class="studio-card p-6 rounded-2xl space-y-3">
+          <div class="w-12 h-12 rounded-xl bg-paper border-2 border-ink flex items-center justify-center font-black text-xl">
+            🎬
+          </div>
+          <h4 class="font-display font-black text-lg text-ink">AI Story Video Ads</h4>
+          <p class="text-xs text-ink/80 font-medium leading-relaxed">
+            A website without visitors is useless. We produce cinematic AI video advertisements tailored for Instagram Reels &amp; YouTube Shorts.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PRICING PLANS (Pre-rendered static cards + dynamically refreshed by app.js/admin) -->
+  <section id="plans" class="py-20 lg:py-28">
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl">
+      
+      <div class="max-w-3xl mx-auto text-center space-y-4 mb-16">
+        <span class="text-xs font-black uppercase text-brandOrange tracking-wider">PRICING &amp; PACKAGES</span>
+        <h2 class="font-display text-3xl sm:text-5xl font-black uppercase text-ink tracking-tight">
+          Select Your Website &amp; Video Plan
+        </h2>
+        <p class="text-ink/80 text-base font-medium">
+          Instant booking with PhonePe integration on next page. Editable anytime from Admin Panel.
+        </p>
+
+        <!-- VIP Coupon Hint -->
+        <div class="inline-flex items-center space-x-2 bg-sunYellow border-2 border-ink text-ink px-4 py-1.5 rounded-full text-xs font-black shadow-[2px_2px_0px_#141414]">
+          <i data-lucide="tag" class="w-3.5 h-3.5"></i>
+          <span>Use coupon <strong class="underline font-mono">VIP50</strong> for 50% VIP discount on next page!</span>
+        </div>
+      </div>
+
+      <!-- Plans Container: Statically Pre-rendered with 4 Packages so it is never empty! -->
+      <div id="livePlansContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Plan 1: Basic Starter -->
+        <div class="studio-card rounded-3xl p-6 flex flex-col justify-between relative">
+          <div>
+            <span class="px-3 py-1 rounded-full bg-paper border border-ink text-ink text-[11px] font-black uppercase inline-block">
+              Basic Starter
+            </span>
+            <div class="my-4">
+              <div class="flex items-baseline space-x-1">
+                <span class="text-3xl font-black font-display text-ink">₹4,999</span>
+                <span class="text-xs text-ink/60 font-bold">/ one-time</span>
+              </div>
+              <p class="text-xs text-ink/70 font-medium mt-1 leading-relaxed">
+                For small local services needing a fast, professional online presence.
+              </p>
+            </div>
+            <div class="space-y-2.5 pt-4 border-t-2 border-ink/10 text-xs font-bold text-ink">
+              <div class="flex items-center space-x-2"><span class="text-brandOrange font-black">✓</span><span>Clean Responsive Website</span></div>
+              <div class="flex items-center space-x-2"><span class="text-brandOrange font-black">✓</span><span>Custom Logo &amp; Brand Palette</span></div>
+              <div class="flex items-center space-x-2"><span class="text-brandOrange font-black">✓</span><span>1 Promotional AI Short Video</span></div>
+              <div class="flex items-center space-x-2"><span class="text-brandOrange font-black">✓</span><span>Direct WhatsApp Instant Button</span></div>
+              <div class="flex items-center space-x-2"><span class="text-brandOrange font-black">✓</span><span>5–7 Days Fast Delivery</span></div>
+            </div>
+          </div>
+          <div class="pt-6 mt-6 border-t-2 border-ink/10">
+            <a href="checkout.html?plan=Basic+Starter&price=4999" class="w-full py-3.5 rounded-xl btn-primary-orange font-black text-xs uppercase text-center block tracking-wider">
+              CHOOSE BASIC &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Plan 2: Growth Business -->
+        <div class="studio-card rounded-3xl p-6 flex flex-col justify-between relative">
+          <div>
+            <span class="px-3 py-1 rounded-full bg-paper border border-ink text-ink text-[11px] font-black uppercase inline-block">
+              Growth Business
+            </span>
+            <div class="my-4">
+              <div class="flex items-baseline space-x-1">
+                <span class="text-3xl font-black font-display text-ink">₹9,999</span>
+                <span class="text-xs text-ink/60 font-bold">/ one-time</span>
+              </div>
+              <p class="text-xs text-ink/70 font-medium mt-1 leading-relaxed">
+                For growing businesses looking to capture leads and showcase their work.
+              </p>
+            </div>
+            <div class="space-y-2.5 pt-4 border-t-2 border-ink/10 text-xs font-bold text-ink">
+              <div class="flex items-center space-x-2"><span class="text-brandOrange font-black">✓</span><span>Up to 5 Pages Multi-Section Website</span></div>
+              <div class="flex items-center space-x-2"><span class="text-brandOrange font-black">✓</span><span>Complete Logo Suite &amp; Social Icons</span></div>
+              <div class="flex items-center space-x-2"><span class="text-brandOrange font-black">✓</span><span>2 AI Storytelling Promo Video Reels</span></div>
+              <div class="flex items-center space-x-2"><span class="text-brandOrange font-black">✓</span><span>Digital Letterhead Generator Tool</span></div>
+              <div class="flex items-center space-x-2"><span class="text-brandOrange font-black">✓</span><span>PhonePe Direct UPI Checkout</span></div>
+            </div>
+          </div>
+          <div class="pt-6 mt-6 border-t-2 border-ink/10">
+            <a href="checkout.html?plan=Growth+Business&price=9999" class="w-full py-3.5 rounded-xl btn-primary-orange font-black text-xs uppercase text-center block tracking-wider">
+              CHOOSE GROWTH &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Plan 3: Pro Business Suite (Featured) -->
+        <div class="studio-card-green lg:-translate-y-2 rounded-3xl p-6 flex flex-col justify-between relative">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-trustGreen text-white text-[10px] font-black uppercase tracking-wider border-2 border-ink shadow-[2px_2px_0px_#141414] whitespace-nowrap">
+            RECOMMENDED FOR VENDORS
+          </div>
+          <div>
+            <span class="px-3 py-1 rounded-full bg-sunYellow border border-ink text-ink text-[11px] font-black uppercase inline-block mt-2">
+              Pro Business Suite
+            </span>
+            <div class="my-4">
+              <div class="flex items-baseline space-x-1">
+                <span class="text-3xl font-black font-display text-ink">₹16,999</span>
+                <span class="text-xs text-ink/60 font-bold">/ one-time</span>
+              </div>
+              <p class="text-xs text-ink/70 font-medium mt-1 leading-relaxed">
+                Full automation suite: Solar vendors, event organizers &amp; service leaders.
+              </p>
+            </div>
+            <div class="space-y-2.5 pt-4 border-t-2 border-ink/10 text-xs font-bold text-ink">
+              <div class="flex items-center space-x-2"><span class="text-trustGreen font-black">✓</span><span>Full Custom Business Website</span></div>
+              <div class="flex items-center space-x-2"><span class="text-trustGreen font-black">✓</span><span>Logo Design &amp; Complete Brand Kit</span></div>
+              <div class="flex items-center space-x-2"><span class="text-trustGreen font-black">✓</span><span>Live Quotation Generator Tool</span></div>
+              <div class="flex items-center space-x-2"><span class="text-trustGreen font-black">✓</span><span>Work Completion Certificate Maker</span></div>
+              <div class="flex items-center space-x-2"><span class="text-trustGreen font-black">✓</span><span>Digital Letterhead System</span></div>
+              <div class="flex items-center space-x-2"><span class="text-trustGreen font-black">✓</span><span>4 Cinematic AI Video Ads (Voice + 4K)</span></div>
+              <div class="flex items-center space-x-2"><span class="text-trustGreen font-black">✓</span><span>PhonePe + UPI Gateway Integration</span></div>
+            </div>
+          </div>
+          <div class="pt-6 mt-6 border-t-2 border-ink/10">
+            <a href="checkout.html?plan=Pro+Business+Suite&price=16999" class="w-full py-3.5 rounded-xl btn-primary-green font-black text-xs uppercase text-center block tracking-wider">
+              CHOOSE PRO SUITE &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Plan 4: Enterprise AI Automation -->
+        <div class="studio-card rounded-3xl p-6 flex flex-col justify-between relative">
+          <div>
+            <span class="px-3 py-1 rounded-full bg-paper border border-ink text-ink text-[11px] font-black uppercase inline-block">
+              Enterprise AI
+            </span>
+            <div class="my-4">
+              <div class="flex items-baseline space-x-1">
+                <span class="text-3xl font-black font-display text-ink">₹29,999</span>
+                <span class="text-xs text-ink/60 font-bold">/ one-time</span>
+              </div>
+              <p class="text-xs text-ink/70 font-medium mt-1 leading-relaxed">
+                Comprehensive web system with custom client portal &amp; unlimited video pipeline.
+              </p>
+            </div>
+            <div class="space-y-2.5 pt-4 border-t-2 border-ink/10 text-xs font-bold text-ink">
+              <div class="flex items-center space-x-2"><span class="text-brandOrange font-black">✓</span><span>Unlimited Pages &amp; Client Portal</span></div>
+              <div class="flex items-center space-x-2"><span class="text-brandOrange font-black">✓</span><span>Full Brand Identity &amp; Vector Logo Suite</span></div>
+              <div class="flex items-center space-x-2"><span class="text-brandOrange font-black">✓</span><span>Quotation, Invoice &amp; Certificate Engine</span></div>
+              <div class="flex items-center space-x-2"><span class="text-brandOrange font-black">✓</span><span>8 Cinematic AI Video Advertisements</span></div>
+              <div class="flex items-center space-x-2"><span class="text-brandOrange font-black">✓</span><span>WhatsApp Business API Auto-Responder</span></div>
+            </div>
+          </div>
+          <div class="pt-6 mt-6 border-t-2 border-ink/10">
+            <a href="checkout.html?plan=Enterprise+AI+Automation&price=29999" class="w-full py-3.5 rounded-xl btn-primary-orange font-black text-xs uppercase text-center block tracking-wider">
+              CHOOSE ENTERPRISE &rarr;
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WANT TO WORK WITH US / JOIN THE TEAM SECTION (Requested: Keep Green theme here!) -->
+  <section class="py-16 bg-trustGreen text-white border-y-2 border-ink">
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-2 text-center md:text-left">
+        <span class="px-3 py-1 rounded-full bg-white text-ink text-[10px] font-black uppercase border border-ink">WE ARE HIRING &amp; COLLABORATING</span>
+        <h3 class="font-display font-black text-2xl sm:text-4xl uppercase">Want to work with us from home?</h3>
+        <p class="text-white/90 text-sm font-medium max-w-xl">
+          Are you a developer, video editor, or intern looking for real-world projects and remote collaboration? We'd love to partner with you.
+        </p>
+      </div>
+      <div>
+        <button onclick="openJoinTeamModal()" class="px-8 py-4 bg-sunYellow hover:bg-yellow-400 text-ink border-2 border-ink rounded-full font-black text-xs uppercase tracking-wider shadow-[4px_4px_0px_#141414] transition-all">
+          APPLY / COLLABORATE &rarr;
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (Includes Admin Panel Link) -->
+  <footer class="bg-paper py-12 border-t-2 border-ink text-ink text-xs">
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-8 h-8 rounded-lg bg-ink text-brandOrange flex items-center justify-center font-bold">
+          <i data-lucide="code" class="w-4 h-4 text-brandOrange"></i>
+        </div>
+        <span class="font-display font-black text-base text-ink brand-name-text">[BRAND NAME]</span>
+        <span class="text-ink/40">|</span>
+        <span class="font-bold">Not Your Average Website Wala</span>
+      </div>
+
+      <div class="flex items-center space-x-4 font-bold text-ink/80">
+        <button onclick="openJoinTeamModal()" class="hover:text-trustGreen">Join The Team</button>
+        <span>•</span>
+        <a href="#work" class="hover:text-brandOrange">Our Work</a>
+        <span>•</span>
+        <a href="tel:+919876543210" class="hover:text-brandOrange">+91 98765 43210</a>
+        <span>•</span>
+        <a href="admin.html" class="text-brandOrange underline hover:text-brandOrangeHover">Admin Portal ⚙️</a>
+      </div>
+
+      <div>
+        &copy; 2026 <span class="brand-name-text font-bold">[BRAND NAME]</span>. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= MODALS ================= -->
+
+  <!-- 1. JOIN THE TEAM / INTERN MODAL (Green Theme) -->
+  <div id="joinTeamModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink/70 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
+    <div class="studio-card-green rounded-3xl max-w-lg w-full p-6 sm:p-8 relative space-y-5 bg-white">
+      <button onclick="closeJoinTeamModal()" class="absolute top-5 right-5 p-2 rounded-xl border border-ink text-ink hover:bg-paper">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div>
+        <span class="text-xs font-black uppercase text-trustGreen tracking-wider">COLLABORATION / REMOTE WORK</span>
+        <h3 class="text-2xl font-black font-display text-ink mt-0.5">Join Our Studio</h3>
+        <p class="text-xs text-ink/70 font-medium">For web developers, video editors, and interns wanting real client exposure.</p>
+      </div>
+
+      <form id="joinTeamForm" onsubmit="handleJoinTeamSubmit(event)" class="space-y-3.5">
+        <div>
+          <label class="block text-xs font-black uppercase text-ink mb-1">Your Full Name *</label>
+          <input type="text" id="devName" required placeholder="e.g. Priyanshu Sharma" class="w-full px-3.5 py-2.5 rounded-xl border-2 border-ink bg-cream text-ink text-sm outline-none">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-black uppercase text-ink mb-1">WhatsApp / Phone *</label>
+            <input type="tel" id="devPhone" required placeholder="+91 98765 00000" class="w-full px-3.5 py-2.5 rounded-xl border-2 border-ink bg-cream text-ink text-sm outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-black uppercase text-ink mb-1">Role / Interest</label>
+            <select id="devRole" class="w-full px-3.5 py-2.5 rounded-xl border-2 border-ink bg-cream text-ink text-sm outline-none">
+              <option value="Frontend Developer">Frontend Developer</option>
+              <option value="Fullstack / Tool Engineer">Fullstack / Tool Engineer</option>
+              <option value="Video Ads Creator">AI Video Ads Creator</option>
+              <option value="Internship (College Student)">Internship (College / Fresher)</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-black uppercase text-ink mb-1">Portfolio Link / GitHub / Demo Work</label>
+          <input type="url" id="devPortfolio" placeholder="https://github.com/yourusername or portfolio URL" class="w-full px-3.5 py-2.5 rounded-xl border-2 border-ink bg-cream text-ink text-sm outline-none">
+        </div>
+
+        <button type="submit" class="w-full py-3.5 btn-primary-green rounded-xl font-black text-xs uppercase tracking-wider">
+          SUBMIT APPLICATION &rarr;
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 2. STUDIO VIDEO MODAL -->
+  <div id="studioVideoModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink/90 backdrop-blur-md hidden opacity-0 transition-opacity duration-200">
+    <div class="studio-card rounded-3xl max-w-2xl w-full p-6 relative text-center space-y-4">
+      <button onclick="closeStudioVideoModal()" class="absolute top-4 right-4 p-2 rounded-xl text-ink hover:bg-paper border border-ink">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="aspect-video w-full rounded-2xl bg-ink text-white flex flex-col items-center justify-center p-6 border-2 border-ink">
+        <div class="w-16 h-16 rounded-full bg-brandOrange text-white flex items-center justify-center mb-3">
+          <i data-lucide="play" class="w-8 h-8 ml-1 fill-current"></i>
+        </div>
+        <h4 class="text-xl font-bold font-display text-white">How We Build &amp; Automate With AI</h4>
+        <p class="text-xs text-slate-300 max-w-sm mt-1">Ready to embed your custom MP4 video files, YouTube Shorts, or Vimeo reel.</p>
+      </div>
+
+      <a href="checkout.html?plan=Pro+Business+Suite&price=16999" class="btn-primary-orange px-6 py-3 rounded-full text-xs font-black uppercase inline-flex items-center gap-1.5">
+        <span>MAKE MY WEBSITE NOW &rarr;</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 3. CASE STUDY DETAILS MODAL -->
+  <div id="caseStudyModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink/70 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
+    <div class="studio-card rounded-3xl max-w-lg w-full p-6 sm:p-8 relative space-y-4">
+      <button onclick="closeCaseStudyModal()" class="absolute top-5 right-5 p-2 rounded-xl border border-ink text-ink hover:bg-paper">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div>
+        <span id="caseCategory" class="text-xs font-black uppercase text-brandOrange tracking-wider">Case Study</span>
+        <h3 id="caseTitle" class="text-2xl font-black font-display text-ink mt-0.5">Project Title</h3>
+      </div>
+
+      <p id="caseDescription" class="text-xs text-ink/80 font-medium leading-relaxed">
+        Details regarding the automated solution built for this business.
+      </p>
+
+      <div class="grid grid-cols-2 gap-3 pt-2">
+        <div class="p-3 bg-paper rounded-xl border-2 border-ink">
+          <span class="text-[10px] uppercase font-bold text-ink/60">Core Outcome</span>
+          <div id="caseMetric1" class="text-sm font-black font-display text-brandOrange mt-0.5">3.8x Faster</div>
+        </div>
+        <div class="p-3 bg-paper rounded-xl border-2 border-ink">
+          <span class="text-[10px] uppercase font-bold text-ink/60">Paperless Transition</span>
+          <div id="caseMetric2" class="text-sm font-black font-display text-trustGreen mt-0.5">Zero Excel</div>
+        </div>
+      </div>
+
+      <div class="pt-2">
+        <a href="checkout.html?plan=Pro+Business+Suite&price=16999" class="w-full py-3.5 btn-primary-orange rounded-xl font-black text-xs uppercase text-center block">
+          BUILD SIMILAR WORKFLOW FOR MY BUSINESS &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Quick WhatsApp Button (Kept in standard authentic Trust Green!) -->
+  <a href="https://wa.me/919876543210?text=Hello%20I%20want%20to%20build%20a%20website%20and%20AI%20video%20for%20my%20business" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-30 p-3.5 bg-trustGreen hover:bg-trustGreenHover text-white border-2 border-ink rounded-full shadow-[4px_4px_0px_#141414] hover:scale-105 transition-transform flex items-center space-x-2 font-black text-xs" title="Chat on WhatsApp">
+    <i data-lucide="message-circle" class="w-5 h-5"></i>
+    <span class="hidden sm:inline">WhatsApp Quick Chat</span>
+  </a>
+
+  <!-- Script logic -->
+  <script src="app.js"></script>
+</body>
+</html>
